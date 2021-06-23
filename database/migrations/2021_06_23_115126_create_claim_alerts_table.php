@@ -15,6 +15,10 @@ class CreateClaimAlertsTable extends Migration
     {
         Schema::create('claim_alerts', function (Blueprint $table) {
             $table->id();
+            $table->text('message');
+            $table->unsignedBigInteger('alerttype_id');
+            $table->foreign('alerttype_id')->references('id')->on('alert_types');
+
             $table->timestamps();
         });
     }

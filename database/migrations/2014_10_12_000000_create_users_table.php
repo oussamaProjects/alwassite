@@ -20,13 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('nom');
             $table->string('prenom');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->boolean('active')->default(true);;
             $table->boolean('deleted')->default(false);;
-            $table->string('cin');
-            $table->string('tel_mobile');
-            $table->string('tel_fixe');
-            $table->string('adresse');
+            $table->string('cin')->nullable();
+            $table->string('tel_mobile')->nullable();
+            $table->string('tel_fixe')->nullable();
+            $table->string('adresse')->nullable();
             $table->enum('sexe', ['male', 'female']);
             $table->rememberToken();
             $table->timestamps();
