@@ -13,13 +13,13 @@
 
     <!--  Social tags      -->
     <meta name="keywords"
-        content="creative tim, html dashboard, laravel, html css dashboard laravel, web dashboard, bootstrap 4 dashboard laravel, bootstrap 4, css3 dashboard, bootstrap 4 admin laravel, material ui dashboard bootstrap 4 laravel, frontend, responsive bootstrap 4 dashboard, material design, material laravel bootstrap 4 dashboard">
+        content="Alwassite, html dashboard, laravel, html css dashboard laravel, web dashboard, bootstrap 4 dashboard laravel, bootstrap 4, css3 dashboard, bootstrap 4 admin laravel, material ui dashboard bootstrap 4 laravel, frontend, responsive bootstrap 4 dashboard, material design, material laravel bootstrap 4 dashboard">
     <meta name="description"
         content="Material Dashboard Laravel is a Free Material Bootstrap Admin Preset for Laravel with a fresh, new design inspired by Google's Material Design.">
 
 
     <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="Material Dashboard Laravel by Creative Tim">
+    <meta itemprop="name" content="Material Dashboard Laravel by Alwassite">
     <meta itemprop="description"
         content="Material Dashboard Laravel is a Free Material Bootstrap Admin Preset for Laravel with a fresh, new design inspired by Google's Material Design.">
 
@@ -30,7 +30,7 @@
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="product">
     <meta name="twitter:site" content="@creativetim">
-    <meta name="twitter:title" content="Material Dashboard Laravel by Creative Tim">
+    <meta name="twitter:title" content="Material Dashboard Laravel by Alwassite">
 
     <meta name="twitter:description"
         content="Material Dashboard Laravel is a Free Material Bootstrap Admin Preset for Laravel with a fresh, new design inspired by Google's Material Design.">
@@ -41,16 +41,16 @@
 
     <!-- Open Graph data -->
     <meta property="fb:app_id" content="655968634437471">
-    <meta property="og:title" content="Material Dashboard Laravel by Creative Tim" />
+    <meta property="og:title" content="Material Dashboard Laravel by Alwassite" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://material-dashboard-laravel.creative-tim.com/" />
     <meta property="og:image"
         content="https://s3.amazonaws.com/creativetim_bucket/products/154/opt_md_laravel_thumbnail.jpg" />
     <meta property="og:description"
         content="Material Dashboard Laravel is a Free Material Bootstrap Admin Preset for Laravel with a fresh, new design inspired by Google's Material Design." />
-    <meta property="og:site_name" content="Creative Tim" />
+    <meta property="og:site_name" content="Alwassite" />
 
-    <title>{{ __('Material Dashboard Laravel - Free Frontend Preset for Laravel') }}</title>
+    <title>{{ __('Alwassite') }}</title>
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('material') }}/img/apple-icon.png">
     <link rel="icon" type="image/png" href="{{ asset('material') }}/img/favicon.png">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
@@ -65,27 +65,27 @@
     <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
     <!-- Google Tag Manager -->
     <script>
-    (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start': new Date().getTime(),
-            event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
     </script>
     <!-- End Google Tag Manager -->
 
 </head>
 
 <body class="clickup-chrome-ext_installed">
-    {{ $activePage=''}}
+    {{ $activePage = '' }}
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -103,7 +103,7 @@
               -->
             <div class="logo">
                 <a href="https://creative-tim.com/" class="simple-text logo-normal">
-                    {{ __('Creative Tim') }}
+                    {{ __('Alwassite') }}
                 </a>
             </div>
             <div class="sidebar-wrapper">
@@ -329,7 +329,7 @@
                         <ul>
                             <li>
                                 <a href="https://www.creative-tim.com">
-                                    Creative Tim
+                                    Alwassite
                                 </a>
                             </li>
                             <li>
@@ -352,9 +352,9 @@
                     <div class="copyright float-right">
                         ©
                         <script>
-                        document.write(new Date().getFullYear())
+                            document.write(new Date().getFullYear())
                         </script>, made with <i class="material-icons">favorite</i> by
-                        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> and <a
+                        <a href="https://www.creative-tim.com" target="_blank">Alwassite</a> and <a
                             href="https://www.updivision.com" target="_blank">UPDIVISION</a> for a better web.
                     </div>
                 </div>
@@ -475,7 +475,7 @@
     <!-- Library for adding dinamically elements -->
     <script src="{{ asset('material') }}/js/plugins/arrive.min.js"></script>
     <!--  Google Maps Plugin    -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE'"></script>
+    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE'"></script> --}}
     <!-- Chartist JS -->
     <script src="{{ asset('material') }}/js/plugins/chartist.min.js"></script>
     <!--  Notifications Plugin    -->
@@ -486,31 +486,31 @@
     <script src="{{ asset('material') }}/demo/demo.js"></script>
     <script src="{{ asset('material') }}/js/settings.js"></script>
     <script>
-    // Facebook Pixel Code Don't Delete
-    ! function(f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function() {
-            n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = '2.0';
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s)
-    }(window,
-        document, 'script', '//connect.facebook.net/en_US/fbevents.js');
-    try {
-        fbq('init', '111649226022273');
-        fbq('track', "PageView");
-    } catch (err) {
-        console.log('Facebook Track Error:', err);
-    }
+        // Facebook Pixel Code Don't Delete
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window,
+            document, 'script', '//connect.facebook.net/en_US/fbevents.js');
+        try {
+            fbq('init', '111649226022273');
+            fbq('track', "PageView");
+        } catch (err) {
+            console.log('Facebook Track Error:', err);
+        }
     </script>
     <noscript>
         <img height="1" width="1" style="display:none"

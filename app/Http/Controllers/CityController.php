@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class CityController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware(['auth']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,8 @@ class CityController extends Controller
      */
     public function index()
     {
-        //
+        $cities = City::all();
+        return view('settings.cities.index', compact('cities'));
     }
 
     /**
@@ -35,7 +40,20 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string',
+        ]);
+
+        $city = new City();
+        $check_name = City::where('name', 'like', $request->input('name'))->first();
+        if ($check_name !== null) {
+            return redirect()->back()->with('failure', 'Le nom de la ville exist deja !');
+        }
+
+        $city->name = $request->input('name');
+        $city->save();
+
+        return redirect()->back()->with('success', 'La ville a été ajouter avec succès !');
     }
 
     /**
@@ -46,7 +64,13 @@ class CityController extends Controller
      */
     public function show(City $city)
     {
-        //
+        $data = array(
+            'city' => $city,
+            'projects' => $city->projects,
+        );
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     /**
@@ -57,7 +81,10 @@ class CityController extends Controller
      */
     public function edit(City $city)
     {
-        //
+
+        return response()->json([
+            'data' => $city
+        ]);
     }
 
     /**
@@ -69,7 +96,16 @@ class CityController extends Controller
      */
     public function update(Request $request, City $city)
     {
-        //
+        $this->validate($request, [
+            'name' => 'string|required'
+        ]);
+
+        City::updateOrCreate(
+            ['id' => $city->id],
+            ['name' => $request->name,]
+        );
+
+        return response()->json(['success' => true]);
     }
 
     /**

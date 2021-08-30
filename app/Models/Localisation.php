@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Localisation extends Model
 {
     use HasFactory;
+    public function project()
+    {
+        return $this->belongsTo(Project::Class);
+    }
 }

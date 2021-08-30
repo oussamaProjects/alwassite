@@ -30,9 +30,6 @@ class CreateClaimsTable extends Migration
             $table->unsignedBigInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities');
 
-            $table->unsignedBigInteger('complex_id');
-            $table->foreign('complex_id')->references('id')->on('complexes');
-
             $table->unsignedBigInteger('localisation_id');
             $table->foreign('localisation_id')->references('id')->on('localisations');
 

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ClaimType extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'display_name', 'description'];
 }

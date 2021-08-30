@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Claim;
+use App\Models\ClaimType;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClaimController extends Controller
 {
@@ -14,7 +18,10 @@ class ClaimController extends Controller
      */
     public function index()
     {
-        //
+        $claims = Claim::all();
+        $claimsTypes = ClaimType::all();
+        $users = User::all();
+        return view('settings.claims.index', compact('claims', 'claimsTypes', 'users'));
     }
 
     /**
@@ -35,7 +42,30 @@ class ClaimController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'objet' => 'required|string',
+            'message' => 'required|string',
+        ]);
+
+        $claim = new Claim();
+        $claim->objet = $request->input('objet');
+        $claim->message = $request->input('message');
+        $claim->date_envoi = Carbon::now();
+        $claim->num_rec = 0;
+        $claim->deleted = 0;
+        $claim->city_id = 1;
+        $claim->localisation_id = 1;
+        $claim->claimType_id = $request->input('claimType_id');
+        $claim->bloc_id = 1;
+
+        if (auth()->user()->id) {
+            $claim->user_id = auth()->user()->id;
+        } else {
+            $claim->user_id = $request->input('user_id');
+        }
+        $claim->save();
+
+        return redirect()->back()->with('success', 'La Claim a été ajouter avec succès !');
     }
 
     /**
@@ -46,7 +76,12 @@ class ClaimController extends Controller
      */
     public function show(Claim $claim)
     {
-        //
+        $data = array(
+            'claim_type' => $claim,
+        );
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     /**
@@ -57,7 +92,9 @@ class ClaimController extends Controller
      */
     public function edit(Claim $claim)
     {
-        //
+        return response()->json([
+            'data' => $claim
+        ]);
     }
 
     /**
@@ -69,7 +106,22 @@ class ClaimController extends Controller
      */
     public function update(Request $request, Claim $claim)
     {
-        //
+        $this->validate($request, [
+            'name' => 'string|required',
+            'display_name' => 'string|required',
+            'description' => 'string|required'
+        ]);
+
+        Claim::updateOrCreate(
+            ['id' => $claim->id],
+            [
+                'name' => $request->name,
+                'display_name' => $request->display_name,
+                'description' => $request->description
+            ]
+        );
+
+        return response()->json(['success' => true]);
     }
 
     /**
