@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ClaimTypeController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware(['auth']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,7 @@ class ClaimTypeController extends Controller
     public function index()
     {
         $claimsTypes = ClaimType::all();
-        return view('settings.claimsTypes.index', compact('claimsTypes'));
+        return view('settings.claims.types.index', compact('claimsTypes'));
     }
 
     /**

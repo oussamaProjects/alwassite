@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Owner;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class OwnerController extends Controller
 {
@@ -20,8 +21,9 @@ class OwnerController extends Controller
     public function index()
     {
         $owners = Owner::all();
+        $roles = Role::all();
 
-        return view('settings.properties.index', compact('owners'));
+        return view('settings.properties.index', compact('owners', 'roles'));
     }
 
     /**

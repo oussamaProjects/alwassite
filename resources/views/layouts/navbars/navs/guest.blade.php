@@ -13,11 +13,19 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
+
                 <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link">
-                        <i class="material-icons">dashboard</i> {{ __('Dashboard') }}
+                        <i class="material-icons">Home</i> {{ __('home') }}
                     </a>
                 </li>
+
+                {{-- <li class="nav-item">
+                    <a href="{{ route('dashboard') }}" class="nav-link">
+                        <i class="material-icons">dashboard</i> {{ __('Dashboard') }}
+                    </a>
+                </li> --}}
+
                 <li class="nav-item{{ $activePage == 'register-user' ? ' active' : '' }}">
                     <a href="{{ route('register-user') }}" class="nav-link">
                         <i class="material-icons">person_add</i> {{ __('Register') }}

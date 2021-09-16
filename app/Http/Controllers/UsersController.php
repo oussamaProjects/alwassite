@@ -10,6 +10,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\City;
 use App\Models\Property;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class UsersController extends Controller
 {
@@ -27,9 +28,10 @@ class UsersController extends Controller
         $users = User::all();
         $cities = City::all();
         $properties = Property::all();
-        // dd($users);
+        // dd($users); 
+        $roles = Role::all();
 
-        return view('settings.owners.index', compact('users', 'cities', 'properties'));
+        return view('settings.owners.index', compact('users', 'cities', 'properties', 'roles'));
     }
 
     /**
@@ -123,13 +125,19 @@ class UsersController extends Controller
             'bloc_id' => 'required'
         ]);
 
+        $user = new User();
+        $user->num = $request->input('num');
+        $user->floor = $request->input('floor');
+        $user->user_id = $request->input('user_id');
+        $user->bloc_id = $request->input('bloc_id');
+        $user->save();
 
-        $properties = new User();
-        $properties->num = $request->input('num');
-        $properties->floor = $request->input('floor');
-        $properties->user_id = $request->input('user_id');
-        $properties->bloc_id = $request->input('bloc_id');
-        $properties->save();
+        if ($request->input('role') !== $user->roles->pluck('name')->implode(' ')) {
+            // first remove current role
+            $user->removeRole($user->roles->pluck('name')->implode(' '));
+            // then assign the new role
+            $user->assignRole($request->input('role'));
+        }
 
         return response()->json(['success' => true]);
     }

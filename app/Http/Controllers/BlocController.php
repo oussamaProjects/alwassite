@@ -37,20 +37,21 @@ class BlocController extends Controller
         //     ->toArray();
 
         $query = "SELECT blocs.id, blocs.name, count(blocs.id) * blocs.paies_amount as paid, 
-        pays.month_paie,pays.year_paie, blocs.nbr_property*blocs.paies_amount as should_be_paid from properties 
-        INNER JOIN pays on properties.id = pays.property_id 
-        INNER JOIN blocs on properties.bloc_id = blocs.id
-        GROUP BY blocs.id, blocs.name, pays.month_paie,pays.year_paie
-        ";
+        pays.year_paie, blocs.nbr_property*blocs.paies_amount as should_be_paid from properties 
+       INNER JOIN pays on properties.id = pays.property_id 
+       INNER JOIN blocs on properties.bloc_id = blocs.id
+       GROUP BY blocs.id, blocs.name,   pays.year_paie
+       ";
+
         // WHERE pays.month_paie = " . Carbon::now()->month . " AND pays.year_paie = 2021
 
 
-        $bloc_need_to_be_paid = DB::select($query);
+        $blocs_payments = DB::select($query);
 
 
-        // dd($bloc_need_to_be_paid);
+        // dd($blocs_payments);
 
-        return view('settings.blocs.index', compact('cities', 'projects', 'blocs', 'blocs_paies', 'bloc_need_to_be_paid'));
+        return view('settings.blocs.index', compact('cities', 'projects', 'blocs', 'blocs_paies', 'blocs_payments'));
     }
 
     /**
@@ -74,6 +75,7 @@ class BlocController extends Controller
         $this->validate($request, [
             'name' => 'required|string',
             'project_id' => 'required',
+            'paies_amount' => 'required',
         ]);
 
         $bloc = new Bloc();
@@ -84,6 +86,7 @@ class BlocController extends Controller
 
         $bloc->name = $request->input('name');
         $bloc->project_id = $request->input('project_id');
+        $bloc->paies_amount = $request->input('paies_amount');
         $bloc->nbr_property = 0;
         $bloc->paies_amount = 0;
         $bloc->save();
@@ -131,11 +134,13 @@ class BlocController extends Controller
     public function update(Request $request, Bloc $bloc)
     {
         $this->validate($request, [
-            'name' => 'string|required'
+            'name' => 'string|required',
+            'paies_amount' => 'string|required',
         ]);
 
         $bloc->name = $request->name;
         $bloc->project_id = $request->project_id;
+        $bloc->paies_amount = $request->paies_amount;
         $bloc->update();
 
         return response()->json(['success' => true]);
@@ -149,6 +154,7 @@ class BlocController extends Controller
      */
     public function destroy(Bloc $bloc)
     {
-        //
+        $bloc->delete();
+        return redirect()->back()->with('success', 'la catégorie a été supprimée avec succès !');
     }
 }

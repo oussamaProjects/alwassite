@@ -9,7 +9,7 @@
                         @csrf
 
                         <div class="card ">
-                            <div class="card-header card-header-primary">
+                            <div class="card-header card-header-info">
                                 <h4 class="card-title">{{ __('Add claim') }}</h4>
                                 <p class="card-category">{{ __('Claims information') }}</p>
                             </div>
@@ -18,7 +18,8 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="alert alert-success">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
                                                     <i class="material-icons">close</i>
                                                 </button>
                                                 <span>{{ session('status') }}</span>
@@ -76,7 +77,7 @@
                                 </div>
 
                                 <div class="card-footer ml-auto">
-                                    <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                                    <button type="submit" class="btn btn-info">{{ __('Save') }}</button>
                                 </div>
                             </div>
                         </div>
@@ -86,14 +87,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header card-header-info">
                             <h4 class="card-title ">Claims</h4>
                             <p class="card-category"> Here you can manage claims</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
-                                    <thead class=" text-primary">
+                                    <thead class=" text-info">
                                         <tr>
                                             <th>
                                                 Objet
@@ -189,7 +190,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="submitEditClaimType" type="button" class="btn btn-primary">Save changes</button>
+                    <button id="submitEditClaimType" type="button" class="btn btn-info">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>

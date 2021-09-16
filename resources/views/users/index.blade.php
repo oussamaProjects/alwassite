@@ -102,7 +102,7 @@
                   Tip 2: you can also add an image using data-image tag
               -->
             <div class="logo">
-                <a href="https://creative-tim.com/" class="simple-text logo-normal">
+                <a href="http://127.0.0.1:8000/home" class="simple-text logo-normal">
                     {{ __('Alwassite') }}
                 </a>
             </div>
@@ -237,8 +237,8 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link" href="#pablo" id="navbarDropdownProfile"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">person</i>
                                     <p class="d-lg-none d-md-block">
                                         Account
@@ -263,7 +263,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                                <div class="card-header card-header-primary">
+                                <div class="card-header card-header-info">
                                     <h4 class="card-title ">Users</h4>
                                     <p class="card-category"> Here you can manage users</p>
                                 </div>
@@ -275,7 +275,7 @@
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">
-                                            <thead class=" text-primary">
+                                            <thead class=" text-info">
                                                 <tr>
                                                     <th>
                                                         Name
@@ -333,7 +333,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://creative-tim.com/presentation">
+                                <a href="http://127.0.0.1:8000/homepresentation">
                                     About Us
                                 </a>
                             </li>
@@ -405,7 +405,7 @@
                 </li>
                 <li class="button-container">
                     <a href="https://www.creative-tim.com/product/material-dashboard-laravel" target="_blank"
-                        class="btn btn-primary btn-block">Free Download</a>
+                        class="btn btn-info btn-block">Free Download</a>
                 </li>
                 <!-- <li class="header-title">Want more components?</li>
                 <li class="button-container">
@@ -432,7 +432,8 @@
                 </li>
                 <li class="header-title">Thank you for 95 shares!</li>
                 <li class="button-container text-center">
-                    <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> · 45</button>
+                    <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> ·
+                        45</button>
                     <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> ·
                         50</button>
                     <br>

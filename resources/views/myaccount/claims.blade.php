@@ -1,16 +1,15 @@
-@extends('layouts.app', ['activePage' => 'claimsTypes', 'titlePage' => __('Manage claimsTypes')])
+@extends('layouts.myaccount', ['activePage' => 'mypaiments', 'titlePage' => __('Mes paiements')])
 
 @section('content')
     <div class="content">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="post" action="{{ route('claims_types.store') }}" autocomplete="off"
-                        class="form-horizontal">
+                    <form method="post" action="{{ route('claims.store') }}" autocomplete="off" class="form-horizontal">
                         @csrf
 
                         <div class="card ">
-                            <div class="card-header card-header-primary">
+                            <div class="card-header card-header-info">
                                 <h4 class="card-title">{{ __('Add claim') }}</h4>
                                 <p class="card-category">{{ __('Claims information') }}</p>
                             </div>
@@ -19,7 +18,8 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="alert alert-success">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
                                                     <i class="material-icons">close</i>
                                                 </button>
                                                 <span>{{ session('status') }}</span>
@@ -30,27 +30,54 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <input class="form-control" name="name" id="input-name" type="text"
-                                                placeholder="{{ __('Name') }}" required="true" aria-required="true" />
+                                            <input class="form-control" name="objet" id="input-objet" type="text"
+                                                placeholder="{{ __('Objet') }}" required="true" aria-required="true" />
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <input class="form-control" name="display_name" id="input-display_name"
-                                                type="text" placeholder="{{ __('Display name') }}" required="true"
-                                                aria-required="true" />
+                                            <select id="input-user_id" class="form-control" name="user_id">
+                                                <option disabled selected>Users</option>
+                                                @foreach ($users as $user)
+                                                    <option value="{{ $user->id }}">{{ $user->nom }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <select id="input-property_id" class="form-control" name="property_id">
+                                                <option disabled selected>Properties</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <select id="input-claimType" class="form-control" name="claimType_id">
+                                                <option disabled selected>Claims type</option>
+                                                @foreach ($claimsTypes as $claimType)
+                                                    <option value="{{ $claimType->id }}">{{ $claimType->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
+
                                         <div class="form-group">
-                                            <input class="form-control" name="description" id="input-description"
-                                                type="text" placeholder="{{ __('Description') }}" required="true"
-                                                aria-required="true" />
+                                            <textarea class="form-control" name="message" id="input-message" type="text"
+                                                placeholder="{{ __('Message') }}" required="true"
+                                                aria-required="true"></textarea>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-footer ml-auto">
-                                    <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                                    <button type="submit" class="btn btn-info">{{ __('Save') }}</button>
                                 </div>
                             </div>
                         </div>
@@ -60,23 +87,23 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header card-header-info">
                             <h4 class="card-title ">Claims</h4>
-                            <p class="card-category"> Here you can manage claimsTypes</p>
+                            <p class="card-category"> Here you can manage claims</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
-                                    <thead class=" text-primary">
+                                    <thead class=" text-info">
                                         <tr>
                                             <th>
-                                                Name
+                                                Objet
                                             </th>
                                             <th>
-                                                Display Name
+                                                Claims type
                                             </th>
                                             <th>
-                                                Description
+                                                Message
                                             </th>
                                             <th>
                                                 Creation date
@@ -87,25 +114,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($claimsTypes as $claimType)
+                                        @foreach ($claims as $claim)
                                             <tr>
                                                 <td>
-                                                    {{ $claimType->name }}
+                                                    {{ $claim->objet }}
                                                 </td>
                                                 <td>
-                                                    {{ $claimType->display_name }}
+                                                    {{ $claim->claim_type->name }}
                                                 </td>
                                                 <td>
-                                                    {{ $claimType->description }}
+                                                    {{ $claim->message }}
                                                 </td>
                                                 <td>
-                                                    {{ $claimType->created_at->toDayDateTimeString() }}
+                                                    {{ $claim->created_at->toDayDateTimeString() }}
                                                 </td>
                                                 <td class="td-actions text-right">
                                                     <a class="editClaimType" rel="tooltip" class="btn btn-success btn-link"
-                                                        href="{{ route('claims_types.edit', $claimType->id) }}"
+                                                        href="{{ route('claims.edit', $claim->id) }}"
                                                         data-original-title="" title="" data-toggle="modal"
-                                                        data-id="{{ $claimType->id }}" data-target="#claimTypeModal">
+                                                        data-id="{{ $claim->id }}" data-target="#claimModal">
                                                         <i class="material-icons">edit</i>
                                                         <div class="ripple-container"></div>
                                                     </a>
@@ -126,7 +153,7 @@
 
 
 
-    <div class="modal fade" id="claimTypeModal" tabindex="-1" role="">
+    <div class="modal fade" id="claimModal" tabindex="-1" role="">
         <div class="modal-dialog modal-login" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -163,7 +190,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="submitEditClaimType" type="button" class="btn btn-primary">Save changes</button>
+                    <button id="submitEditClaimType" type="button" class="btn btn-info">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -187,7 +214,7 @@
                     var display_name = $("#display_name").val();
                     var description = $("#description").val();
 
-                    var url = "{{ URL('claims_types') }}" + "/" + id;
+                    var url = "{{ URL('claim') }}" + "/" + id;
 
                     $.ajax({
                         url: url,
@@ -210,7 +237,7 @@
 
                     event.preventDefault();
                     var id = $(this).data('id');
-                    $.get('claims_types/' + id + '/edit', function(data) {
+                    $.get('claim/' + id + '/edit', function(data) {
                         console.log(data);
                         $('#claim_id').val(data.data.id);
                         $('#name').val(data.data.name);
@@ -218,6 +245,26 @@
                         $('#description').val(data.data.description);
                     })
                 });
+
+
+                $('body').on('change', '#input-user_id', function(event) {
+                    event.preventDefault();
+                    var id = this.value;
+
+                    $.get('users/' + id, function(data) {
+
+                        $('#input-property_id').empty();
+                        $('#input-property_id').append(
+                            ' <option disabled selected>{{ __('Properties') }} </option>')
+
+                        $.each(data.data.properties, function(index, property) {
+                            $('#input-property_id')
+                                .append('<option value="' + property.id + '">' +
+                                    property.name + '</option>');
+                        });
+                    })
+                });
+
 
             });
         </script>

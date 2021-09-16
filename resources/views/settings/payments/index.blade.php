@@ -10,16 +10,17 @@
                         @csrf
 
                         <div class="card ">
-                            <div class="card-header card-header-primary">
-                                <h4 class="card-title">{{ __('Add a pay') }}</h4>
-                                <p class="card-category">{{ __('payments information') }}</p>
+                            <div class="card-header card-header-info">
+                                <h4 class="card-title">{{ __('Add a payement') }}</h4>
+                                <p class="card-category">{{ __('Payments information') }}</p>
                             </div>
                             <div class="card-body ">
                                 @if (session('status'))
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="alert alert-success">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
                                                     <i class="material-icons">close</i>
                                                 </button>
                                                 <span>{{ session('status') }}</span>
@@ -82,10 +83,6 @@
                                         <div class="form-group">
                                             <select id="input-year_paie" class="form-control" name="year_paie">
                                                 <option disabled selected>Payment year</option>
-                                                <option value="2020">2020</option>
-                                                <option value="2021">2021</option>
-                                                <option value="2022">2022</option>
-                                                <option value="2023">2023</option>
                                             </select>
                                         </div>
                                     </div>
@@ -128,7 +125,7 @@
 
                             </div>
                             <div class="card-footer ml-auto">
-                                <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                                <button type="submit" class="btn btn-info">{{ __('Save') }}</button>
                             </div>
 
 
@@ -142,14 +139,14 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header card-header-primary">
-                            <h4 class="card-title ">Payments per month ({{ \Carbon\Carbon::now()->format('F') }})</h4>
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">Payments of ({{ \Carbon\Carbon::now()->format('F') }})</h4>
                             <p class="card-category"> Here you can manage payments</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
-                                    <thead class=" text-primary">
+                                    <thead class=" text-info">
                                         <tr>
 
                                             <th>
@@ -181,14 +178,14 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header card-header-danger">
                             <h4 class="card-title ">NEED TO BE PAID ({{ \Carbon\Carbon::now()->format('F') }})</h4>
                             <p class="card-category"> Here you can manage payments</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
-                                    <thead class=" text-primary">
+                                    <thead class=" text-danger">
                                         <tr>
 
                                             <th>
@@ -288,7 +285,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="submitEditproperty" type="button" class="btn btn-primary">Save changes</button>
+                    <button id="submitEditproperty" type="button" class="btn btn-info">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -306,6 +303,11 @@
                     }
                 });
 
+                $('body').on('change', '#input-property_id', function(event) {
+                    event.preventDefault();
+                    console.log("input-year_paie");
+                    $('#input-year_paie').val(0);
+                });
 
                 $('body').on('change', '#input-city_id', function(event) {
                     event.preventDefault();
@@ -324,6 +326,11 @@
                         $('#input-property_id').empty();
                         $('#input-property_id').append(
                             ' <option disabled selected>{{ __('Properties') }} </option>')
+
+                        $('#input-year_paie').empty();
+                        $('#input-year_paie').append(
+                            '<option disabled selected>{{ __('Payment year') }} </option><option>2020</option><option>2021</option>'
+                        )
 
                         $.each(data.data.projects, function(index, project) {
                             $('#input-project_id')
@@ -346,6 +353,11 @@
                         $('#input-property_id').append(
                             ' <option disabled selected>{{ __('Properties') }} </option>')
 
+                        $('#input-year_paie').empty();
+                        $('#input-year_paie').append(
+                            '<option disabled selected>{{ __('Payment year') }} </option><option>2020</option><option>2021</option>'
+                        )
+
                         $.each(data.data.blocs, function(index, bloc) {
                             $('#input-bloc_id')
                                 .append('<option value="' + bloc.id + '">' +
@@ -364,6 +376,11 @@
                             .append(
                                 ' <option disabled selected>{{ __('Properties') }} </option>')
 
+                        $('#input-year_paie').empty();
+                        $('#input-year_paie').append(
+                            '<option disabled selected>{{ __('Payment year') }} </option><option>2020</option><option>2021</option>'
+                        )
+
                         $.each(data.data.properties, function(index, property) {
                             $('#input-property_id')
                                 .append('<option value="' + property.id + '">' +
@@ -376,15 +393,6 @@
                     event.preventDefault();
                     var year_paie = this.value;
                     var property_id = $('#input-property_id').val();
-
-                    var months = new Array();
-                    $.get('payments/year/' + year_paie + '/property/' + property_id, function(data) {
-                        $.each(data.payments, function(index, payment) {
-                            months.push(parseInt(payment.month_paie));
-                        });
-                    })
-
-                    console.log(months);
 
                     all_months = {
                         1: "Janvier",
@@ -401,18 +409,32 @@
                         12: "Décembre"
                     };
 
-                    for (var key in all_months) {
-                        // if (months.indexOf(parseInt(key)) == -1) {
-                        //     $('#zone_month')
-                        //         .append('<option disabled value="' + key + '">' +
-                        //             all_months[key] + '</option>');
-                        // } else {}
+                    var months = new Array();
+                    $.get('payments/year/' + year_paie + '/property/' + property_id, function(data) {
+                        $.each(data.payments, function(index, payment) {
+                            months.push(parseInt(payment.month_paie));
+                        });
+                    })
 
-                        $('#zone_month')
-                            .append('<option value="' + key + '">' +
-                                all_months[key] + '</option>');
+                    setTimeout(() => {
 
-                    }
+                        // console.log(months);
+
+                        $('#zone_month').empty();
+                        for (var key in all_months) {
+
+                            // console.log(months.indexOf(parseInt(key, 10)));
+                            if (months.indexOf(parseInt(key)) !== -1) {
+                                $('#zone_month').append('<option disabled value="' + key + '">' +
+                                    all_months[key] + '    --    {{ __('paid') }} </option>');
+                            } else {
+                                $('#zone_month').append('<option value="' + key + '">' +
+                                    all_months[key] + '</option>');
+                            }
+
+                        }
+
+                    }, 1000);
                 });
 
                 $('body').on('click', '#submitEditpayment', function(event) {

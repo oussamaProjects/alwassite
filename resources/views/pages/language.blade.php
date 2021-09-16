@@ -45,7 +45,7 @@
     </style>
 </head>
 
-<body class="">
+<body class="___class_+?0___">
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="white"
             data-image="{{ asset('material') }}/img/sidebar-1.jpg">
@@ -55,7 +55,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
             <div class="logo">
-                <a href="https://creative-tim.com/" class="simple-text logo-normal">
+                <a href="http://127.0.0.1:8000/home" class="simple-text logo-normal">
                     تیم خلاق
                 </a>
             </div>
@@ -180,7 +180,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon">
+                                <div class="card-header card-header-info card-header-icon">
                                     <div class="card-icon">
                                         <i class="material-icons">content_copy</i>
                                     </div>
@@ -268,7 +268,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card card-chart">
-                                <div class="card-header card-header-warning">
+                                <div class="card-header card-header-info">
                                     <div class="ct-chart" id="websiteViewsChart"></div>
                                 </div>
                                 <div class="card-body">
@@ -302,7 +302,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-12">
                             <div class="card">
-                                <div class="card-header card-header-tabs card-header-primary">
+                                <div class="card-header card-header-tabs card-header-info">
                                     <div class="nav-tabs-navigation">
                                         <div class="nav-tabs-wrapper">
                                             <span class="nav-tabs-title">وظایف:</span>
@@ -350,7 +350,7 @@
                                                             کردن؟</td>
                                                         <td class="td-actions text-right">
                                                             <button type="button" rel="tooltip" title="ویرایش وظیفه"
-                                                                class="btn btn-primary btn-link btn-sm">
+                                                                class="btn btn-info btn-link btn-sm">
                                                                 <i class="material-icons">edit</i>
                                                             </button>
                                                             <button type="button" rel="tooltip" title="حذف"
@@ -375,7 +375,7 @@
                                                             مشتری یا صاحب کار خود نشان دهند؟</td>
                                                         <td class="td-actions text-right">
                                                             <button type="button" rel="tooltip" title="ویرایش وظیفه"
-                                                                class="btn btn-primary btn-link btn-sm">
+                                                                class="btn btn-info btn-link btn-sm">
                                                                 <i class="material-icons">edit</i>
                                                             </button>
                                                             <button type="button" rel="tooltip" title="حذف"
@@ -400,7 +400,7 @@
                                                         </td>
                                                         <td class="td-actions text-right">
                                                             <button type="button" rel="tooltip" title="ویرایش وظیفه"
-                                                                class="btn btn-primary btn-link btn-sm">
+                                                                class="btn btn-info btn-link btn-sm">
                                                                 <i class="material-icons">edit</i>
                                                             </button>
                                                             <button type="button" rel="tooltip" title="حذف"
@@ -425,7 +425,7 @@
                                                             صفحه‌آرایی می‌کنند</td>
                                                         <td class="td-actions text-right">
                                                             <button type="button" rel="tooltip" title="ویرایش وظیفه"
-                                                                class="btn btn-primary btn-link btn-sm">
+                                                                class="btn btn-info btn-link btn-sm">
                                                                 <i class="material-icons">edit</i>
                                                             </button>
                                                             <button type="button" rel="tooltip" title="حذف"
@@ -457,7 +457,7 @@
                                                         </td>
                                                         <td class="td-actions text-right">
                                                             <button type="button" rel="tooltip" title="ویرایش وظیفه"
-                                                                class="btn btn-primary btn-link btn-sm">
+                                                                class="btn btn-info btn-link btn-sm">
                                                                 <i class="material-icons">edit</i>
                                                             </button>
                                                             <button type="button" rel="tooltip" title="حذف"
@@ -482,7 +482,7 @@
                                                         </td>
                                                         <td class="td-actions text-right">
                                                             <button type="button" rel="tooltip" title="ویرایش وظیفه"
-                                                                class="btn btn-primary btn-link btn-sm">
+                                                                class="btn btn-info btn-link btn-sm">
                                                                 <i class="material-icons">edit</i>
                                                             </button>
                                                             <button type="button" rel="tooltip" title="حذف"
@@ -514,7 +514,7 @@
                                                             آزمایشی؟</td>
                                                         <td class="td-actions text-right">
                                                             <button type="button" rel="tooltip" title="ویرایش وظیفه"
-                                                                class="btn btn-primary btn-link btn-sm">
+                                                                class="btn btn-info btn-link btn-sm">
                                                                 <i class="material-icons">edit</i>
                                                             </button>
                                                             <button type="button" rel="tooltip" title="حذف"
@@ -543,7 +543,7 @@
                                                         </td>
                                                         <td class="td-actions text-right">
                                                             <button type="button" rel="tooltip" title="ویرایش وظیفه"
-                                                                class="btn btn-primary btn-link btn-sm">
+                                                                class="btn btn-info btn-link btn-sm">
                                                                 <i class="material-icons">edit</i>
                                                             </button>
                                                             <button type="button" rel="tooltip" title="حذف"
@@ -568,7 +568,7 @@
                                                             مشتری یا صاحب کار خود نشان دهند؟</td>
                                                         <td class="td-actions text-right">
                                                             <button type="button" rel="tooltip" title="ویرایش وظیفه"
-                                                                class="btn btn-primary btn-link btn-sm">
+                                                                class="btn btn-info btn-link btn-sm">
                                                                 <i class="material-icons">edit</i>
                                                             </button>
                                                             <button type="button" rel="tooltip" title="حذف"
@@ -586,7 +586,7 @@
                         </div>
                         <div class="col-lg-6 col-md-12">
                             <div class="card">
-                                <div class="card-header card-header-warning">
+                                <div class="card-header card-header-info">
                                     <h4 class="card-title">آمار کارکنان</h4>
                                     <p class="card-category">کارکنان جدید از ۱۵ آبان ۱۳۹۶</p>
                                 </div>
@@ -632,7 +632,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-12">
                             <div class="card">
-                                <div class="card-header card-header-primary">
+                                <div class="card-header card-header-info">
                                     <h3 class="card-title">اعلان ها</h3>
                                     <p class="card-category">ایجاد شده توسط دوست ما
                                         <a target="_blank" href="https://github.com/mouse0270">Robert McIntosh</a>. لطفا
@@ -642,14 +642,16 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="alert alert-warning">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">
                                             <i class="material-icons">close</i>
                                         </button>
                                         <span>
                                             این یک اعلان است که با کلاس "alert-warning" ایجاد شده است.</span>
                                     </div>
                                     <div class="alert alert-primary">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">
                                             <i class="material-icons">close</i>
                                         </button>
                                         <span>
@@ -657,7 +659,8 @@
                                     </div>
                                     <div class="alert alert-info alert-with-icon" data-notify="container">
                                         <i class="material-icons" data-notify="icon">add_alert</i>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">
                                             <i class="material-icons">close</i>
                                         </button>
                                         <span data-notify="پیام">این یک اعلان با دکمه بستن و آیکن است</span>
@@ -669,7 +672,8 @@
                             <div class="card card-profile">
                                 <div class="card-avatar">
                                     <a href="#pablo">
-                                        <img class="img" src="{{ asset('material') }}/img/faces/marc.jpg" />
+                                        <img class="img"
+                                            src="{{ asset('material') }}/img/faces/marc.jpg" />
                                     </a>
                                 </div>
                                 <div class="card-body">
@@ -681,7 +685,7 @@
                                         نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد. معمولا طراحان گرافیک برای
                                         صفحه‌آرایی، نخست از متن‌های آزمایشی و بی‌معنی استفاده می‌کنند ...
                                     </p>
-                                    <a href="#pablo" class="btn btn-primary btn-round">دنبال‌کردن</a>
+                                    <a href="#pablo" class="btn btn-info btn-round">دنبال‌کردن</a>
                                 </div>
                             </div>
 
@@ -698,7 +702,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://creative-tim.com/presentation">
+                                    <a href="http://127.0.0.1:8000/homepresentation">
                                         درباره ما
                                     </a>
                                 </li>

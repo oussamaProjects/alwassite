@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="orange" data-background-color="white"
+<div class="sidebar" data-color="azure" data-background-color="black"
     data-image="{{ asset('material') }}/img/sidebar-1.jpg">
     <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -6,14 +6,14 @@
       Tip 2: you can also add an image using data-image tag
   -->
     <div class="logo">
-        <a href="https://creative-tim.com/" class="simple-text logo-normal">
+        <a href="http://127.0.0.1:8000/home" class="simple-text logo-normal">
             {{ __('Alwassite') }}
         </a>
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ route('home') }}">
+                <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="material-icons">dashboard</i>
                     <p>{{ __('Dashboard') }}</p>
                 </a>
@@ -29,6 +29,13 @@
                 <div class="collapse {{ $activePage == 'blocs' || $activePage == 'cities' || $activePage == 'projects' || $activePage == 'properties' || $activePage == 'owners' ? ' show' : '' }}"
                     id="settings">
                     <ul class="nav">
+
+                        <li class="nav-item{{ $activePage == 'categories' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{ route('categories.index') }}">
+                                <span class="sidebar-mini"> C </span>
+                                <span class="sidebar-normal">{{ __('Categories') }} </span>
+                            </a>
+                        </li>
 
                         <li class="nav-item{{ $activePage == 'owners' ? ' active' : '' }}">
                             <a class="nav-link" href="{{ route('owners.index') }}">
@@ -72,14 +79,15 @@
 
 
 
-            <li class="nav-item {{ $activePage == 'payments' ? ' active' : '' }}">
+            <li class="nav-item {{ $activePage == 'payments' || $activePage == 'paymentsListe' ? ' active' : '' }}">
                 <a class="nav-link" data-toggle="collapse" href="#listes" aria-expanded="true">
                     {{-- <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i> --}}
                     <p>{{ __('Listes') }}
                         <b class="caret"></b>
                     </p>
                 </a>
-                <div class="collapse {{ $activePage == 'payments' ? ' show' : '' }}" id="listes">
+                <div class="collapse {{ $activePage == 'payments' || $activePage == 'paymentsListe' ? ' show' : '' }}"
+                    id="listes">
                     <ul class="nav">
 
                         <li class="nav-item{{ $activePage == 'payments' ? ' active' : '' }}">
@@ -100,30 +108,61 @@
                 </div>
             </li>
 
-            <li class="nav-item {{ $activePage == 'claims' || $activePage == 'claimsType' ? ' active' : '' }}">
+            <li
+                class="nav-item {{ $activePage == 'claims' || $activePage == 'claimsTypes' || $activePage == 'claimsStatues' ? ' active' : '' }}">
                 <a class="nav-link" data-toggle="collapse" href="#claims" aria-expanded="true">
                     {{-- <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i> --}}
                     <p>{{ __('Claims') }}
                         <b class="caret"></b>
                     </p>
                 </a>
-                <div class="collapse {{ $activePage == 'claims' || $activePage == 'claimsType' ? ' show' : '' }}"
+                <div class="collapse {{ $activePage == 'claims' || $activePage == 'claimsTypes' || $activePage == 'claimsStatues' ? ' show' : '' }}"
                     id="claims">
                     <ul class="nav">
 
                         <li class="nav-item{{ $activePage == 'claims' ? ' active' : '' }}">
                             <a class="nav-link" href="{{ route('claims.index') }}">
-                                <span class="sidebar-mini"> O </span>
+                                <span class="sidebar-mini"> C </span>
                                 <span class="sidebar-normal">{{ __('Claims') }} </span>
                             </a>
                         </li>
 
                         <li class="nav-item{{ $activePage == 'claimsTypes' ? ' active' : '' }}">
                             <a class="nav-link" href="{{ route('claims_types.index') }}">
-                                <span class="sidebar-mini"> O </span>
+                                <span class="sidebar-mini"> CT </span>
                                 <span class="sidebar-normal">{{ __('Claims types') }} </span>
                             </a>
                         </li>
+
+                        <li class="nav-item{{ $activePage == 'claimsStatues' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{ route('claims_statues.index') }}">
+                                <span class="sidebar-mini"> CS </span>
+                                <span class="sidebar-normal">{{ __('Claims Statues') }} </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+
+
+            <li class="nav-item {{ $activePage == 'ads' ? ' active' : '' }}">
+                <a class="nav-link" data-toggle="collapse" href="#ads" aria-expanded="true">
+                    {{-- <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i> --}}
+                    <p>{{ __('Ads') }}
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse {{ $activePage == 'ads' ? ' show' : '' }}" id="ads">
+                    <ul class="nav">
+
+                        <li class="nav-item{{ $activePage == 'ads' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{ route('ads.index') }}">
+                                <span class="sidebar-mini"> C </span>
+                                <span class="sidebar-normal">{{ __('Ads') }} </span>
+                            </a>
+                        </li>
+
 
                     </ul>
                 </div>

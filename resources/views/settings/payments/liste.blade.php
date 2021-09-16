@@ -47,18 +47,17 @@
 
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header card-header-danger">
                             <h4 class="card-title ">Need to be paid ({{ \Carbon\Carbon::now()->format('F') }})</h4>
+                            <p class="card-category"> Here you can manage payments</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
-                                    <thead class=" text-primary">
+                                    <thead class="text-danger">
                                         <tr>
-
-
                                             <th>
                                                 property
                                             </th>
@@ -113,8 +112,128 @@
                     </div>
                 </div>
 
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">PAIMENTS PER BLOC</h4>
+                            <p class="card-category"> Here you can manage payments</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-info">
+                                        <tr>
+
+                                            <th>
+                                                Bloc
+                                            </th>
+                                            <th>
+                                                Year paie
+                                            </th>
+                                            <th>
+                                                Paid
+                                            </th>
+                                            <th>
+                                                Should be paid
+                                            </th>
+                                            <th>
+                                                Impaid
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($blocs_payments as $payment)
+                                            <tr>
+
+                                                <td>
+                                                    {{ $payment->name }}
+                                                </td>
+                                                <td>
+                                                    {{ $payment->year_paie }}
+                                                </td>
+                                                <td>
+                                                    {{ $payment->paid }}
+                                                </td>
+                                                <td>
+                                                    {{ $payment->should_be_paid }}
+                                                </td>
+                                                <td>
+                                                    {{ $payment->should_be_paid - $payment->paid }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">Payments</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-info">
+                                        <tr>
+                                            <th>Blocs</th>
+                                            <th>name</th>
+                                            <th>user</th>
+                                            <th>property</th>
+                                            <th>Janvier</th>
+                                            <th>Fevrier</th>
+                                            <th>Mars</th>
+                                            <th>Avril</th>
+                                            <th>Mai</th>
+                                            <th>Juin</th>
+                                            <th>Juillet</th>
+                                            <th>Août</th>
+                                            <th>Septembre</th>
+                                            <th>Octobre</th>
+                                            <th>Novembre</th>
+                                            <th>Décembre</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($formated_payments_per_year as $payment)
+                                            <tr>
+                                                <td>{{ $payment['bloc'] }}</td>
+                                                <td>{{ $payment['name'] }}</td>
+                                                <td>{{ $payment['user'] }}</td>
+                                                <td>{{ $payment['num'] }}</td>
+                                                <td>{{ $payment['january'] }}</td>
+                                                <td>{{ $payment['february'] }}</td>
+                                                <td>{{ $payment['march'] }}</td>
+                                                <td>{{ $payment['april'] }}</td>
+                                                <td>{{ $payment['may'] }}</td>
+                                                <td>{{ $payment['june'] }}</td>
+                                                <td>{{ $payment['july'] }}</td>
+                                                <td>{{ $payment['august'] }}</td>
+                                                <td>{{ $payment['september'] }}</td>
+                                                <td>{{ $payment['october'] }}</td>
+                                                <td>{{ $payment['november'] }}</td>
+                                                <td>{{ $payment['december'] }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
         </div>
 
     </div>
@@ -185,7 +304,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="submitEditproperty" type="button" class="btn btn-primary">Save changes</button>
+                    <button id="submitEditproperty" type="button" class="btn btn-info">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -202,7 +321,6 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
-
 
                 $('body').on('change', '#input-city_id', function(event) {
                     event.preventDefault();

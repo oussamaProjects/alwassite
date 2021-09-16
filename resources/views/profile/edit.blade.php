@@ -10,7 +10,7 @@
                         @method('put')
 
                         <div class="card ">
-                            <div class="card-header card-header-primary">
+                            <div class="card-header card-header-info">
                                 <h4 class="card-title">{{ __('Edit Profile') }}</h4>
                                 <p class="card-category">{{ __('User information') }}</p>
                             </div>
@@ -19,7 +19,8 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="alert alert-success">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
                                                     <i class="material-icons">close</i>
                                                 </button>
                                                 <span>{{ session('status') }}</span>
@@ -32,8 +33,8 @@
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('nom') ? ' has-danger' : '' }}">
                                             <input class="form-control{{ $errors->has('nom') ? ' is-invalid' : '' }}"
-                                                nom="nom" id="input-nom" type="text" placeholder="{{ __('nom') }}"
-                                                value="{{ old('Nom', auth()->user()->name) }}" required="true"
+                                                nom="nom" id="input-nom" type="text" placeholder="{{ __('Nom') }}"
+                                                value="{{ old('nom', auth()->user()->name) }}" required="true"
                                                 aria-required="true" />
                                             @if ($errors->has('nom'))
                                                 <span id="nom-error" class="error text-danger"
@@ -61,18 +62,37 @@
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-sm-2 col-form-label">{{ __('Téléphone') }}</label>
+                                    <label class="col-sm-2 col-form-label">{{ __('Téléphone Mobile') }}</label>
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('tel_mobile') ? ' has-danger' : '' }}">
                                             <input
                                                 class="form-control{{ $errors->has('tel_mobile') ? ' is-invalid' : '' }}"
                                                 name="tel_mobile" id="input-tel_mobile" type="text"
-                                                placeholder="{{ __('Téléphone') }}"
+                                                placeholder="{{ __('Téléphone Mobile') }}"
                                                 value="{{ old('tel_mobile', auth()->user()->tel_mobile) }}"
                                                 required="true" aria-required="true" />
                                             @if ($errors->has('tel_mobile'))
                                                 <span id="tel_mobile-error" class="error text-danger"
                                                     for="input-tel_mobile">{{ $errors->first('tel_mobile') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('Téléphone Fixe') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('tel_fixe') ? ' has-danger' : '' }}">
+                                            <input
+                                                class="form-control{{ $errors->has('tel_fixe') ? ' is-invalid' : '' }}"
+                                                name="tel_fixe" id="input-tel_fixe" type="text"
+                                                placeholder="{{ __('Téléphone Fixe') }}"
+                                                value="{{ old('tel_fixe', auth()->user()->tel_fixe) }}" required="true"
+                                                aria-required="true" />
+                                            @if ($errors->has('tel_fixe'))
+                                                <span id="tel_fixe-error" class="error text-danger"
+                                                    for="input-tel_fixe">{{ $errors->first('tel_fixe') }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -93,9 +113,58 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('CIN') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('cin') ? ' has-danger' : '' }}">
+                                            <input class="form-control{{ $errors->has('cin') ? ' is-invalid' : '' }}"
+                                                name="cin" id="input-cin" type="cin" placeholder="{{ __('CIN') }}"
+                                                value="{{ old('cin', auth()->user()->cin) }}" required />
+                                            @if ($errors->has('cin'))
+                                                <span id="cin-error" class="error text-danger"
+                                                    for="input-cin">{{ $errors->first('cin') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('Adresse') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('adresse') ? ' has-danger' : '' }}">
+                                            <textarea
+                                                class="form-control{{ $errors->has('adresse') ? ' is-invalid' : '' }}"
+                                                name="adresse" id="input-adresse" type="adresse"
+                                                placeholder="{{ __('Adresse') }}"
+                                                value="{{ old('adresse', auth()->user()->adresse) }}"
+                                                required></textarea>
+                                            @if ($errors->has('adresse'))
+                                                <span id="adresse-error" class="error text-danger"
+                                                    for="input-adresse">{{ $errors->first('adresse') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('Genre') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('sexe') ? ' has-danger' : '' }}">
+                                            <select id="input-sexe" class="form-control" name="sexe">
+                                                <option disabled selected>Genre</option>
+                                                <option value="1">{{ __('Mâle') }}</option>
+                                                <option value="2">{{ __('Femelle') }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
                             <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                                <button type="submit" class="btn btn-info">{{ __('Save') }}</button>
                             </div>
                         </div>
                     </form>
@@ -108,7 +177,7 @@
                         @method('put')
 
                         <div class="card ">
-                            <div class="card-header card-header-primary">
+                            <div class="card-header card-header-info">
                                 <h4 class="card-title">{{ __('Change password') }}</h4>
                                 <p class="card-category">{{ __('Password') }}</p>
                             </div>
@@ -117,7 +186,8 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="alert alert-success">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
                                                     <i class="material-icons">close</i>
                                                 </button>
                                                 <span>{{ session('status_password') }}</span>
@@ -170,7 +240,7 @@
                                 </div>
                             </div>
                             <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" class="btn btn-primary">{{ __('Change password') }}</button>
+                                <button type="submit" class="btn btn-info">{{ __('Change password') }}</button>
                             </div>
                         </div>
                     </form>

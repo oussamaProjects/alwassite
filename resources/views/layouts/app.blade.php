@@ -18,12 +18,12 @@
     <!-- CSS Files -->
     <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
+    <link href="{{ asset('css') }}/app.css" rel="stylesheet" />
 </head>
 
 <body class="{{ $class ?? '' }}">
     @auth()
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        <form id="logout-form" action="{{ route('logout') }}" method="GET" style="display: none;">
             @csrf
         </form>
         @include('layouts.page_templates.auth')
@@ -75,7 +75,7 @@
                     </li>
                     <li class="button-container">
                         <a href="https://www.creative-tim.com/product/material-dashboard-laravel" target="_blank"
-                            class="btn btn-primary btn-block">Free Download</a>
+                            class="btn btn-info btn-block">Free Download</a>
                     </li>
                     <!-- <li class="header-title">Want more components?</li>
                   <li class="button-container">
@@ -158,6 +158,7 @@
     <!-- Material Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{ asset('material') }}/demo/demo.js"></script>
     <script src="{{ asset('material') }}/js/settings.js"></script>
+    <script src="{{ asset('js') }}/app.js"></script>
     @stack('js')
 </body>
 

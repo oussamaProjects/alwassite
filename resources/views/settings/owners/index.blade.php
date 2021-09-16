@@ -10,7 +10,7 @@
                         @csrf
 
                         <div class="card ">
-                            <div class="card-header card-header-primary">
+                            <div class="card-header card-header-info">
                                 <h4 class="card-title">{{ __('Add property') }}</h4>
                                 <p class="card-category">{{ __('users information') }}</p>
                             </div>
@@ -19,7 +19,8 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="alert alert-success">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
                                                     <i class="material-icons">close</i>
                                                 </button>
                                                 <span>{{ session('status') }}</span>
@@ -29,18 +30,19 @@
                                 @endif
                                 <div class="row">
 
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-12">
                                         @if ($errors->any())
                                             {!! implode('', $errors->all('<div>:message</div>')) !!}
                                         @endif
                                     </div>
                                 </div>
+
                                 <div class="row">
 
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <input class="form-control" name="first_name" id="input-first_name" type="text"
-                                                placeholder="{{ __('First name') }}" required="true"
+                                            <input class="form-control" name="first_name" id="input-first_name"
+                                                type="text" placeholder="{{ __('First name') }}" required="true"
                                                 aria-required="true" />
                                         </div>
                                     </div>
@@ -60,7 +62,6 @@
                                     </div>
                                 </div>
 
-
                                 <div class="row">
 
                                     <div class="col-sm-4">
@@ -71,8 +72,8 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <input class="form-control" name="tel_mobile" id="input-tel_mobile" type="text"
-                                                placeholder="{{ __('tel mobile') }}" required="true"
+                                            <input class="form-control" name="tel_mobile" id="input-tel_mobile"
+                                                type="text" placeholder="{{ __('tel mobile') }}" required="true"
                                                 aria-required="true" />
                                         </div>
                                     </div>
@@ -132,7 +133,7 @@
 
 
                             <div class="card-footer ml-auto">
-                                <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                                <button type="submit" class="btn btn-info">{{ __('Save') }}</button>
                             </div>
                         </div>
                     </form>
@@ -141,14 +142,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header card-header-info">
                             <h4 class="card-title ">users</h4>
                             <p class="card-category"> Here you can manage users</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
-                                    <thead class=" text-primary">
+                                    <thead class=" text-info">
                                         <tr>
                                             <th>
                                                 Nom
@@ -213,7 +214,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="propertyModal" tabindex="-1" role="">
+    <div class="modal fade" id="userModal" tabindex="-1" role="">
         <div class="modal-dialog modal-login" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -250,7 +251,6 @@
                             </div>
                         </div>
 
-
                         <div class="form-group bmd-form-group">
                             <div class="input-group">
                                 <label class="col-sm-2 col-form-label" for="user_id">{{ __('User') }}</label>
@@ -275,10 +275,27 @@
                             </div>
                         </div> --}}
 
+                        <div class="form-group bmd-form-group">
+                            <div class="input-group">
+                                <label class="col-sm-2 col-form-label" for="role">{{ __('Rôle actuel') }}</label>
+                                <select id="role" class="form-control" name="role">
+                                    <option disabled selected>Attribuer un rôle</option>
+                                    @if (count($roles) > 0)
+                                        @foreach ($roles as $role)
+                                            <option value="{{ $role->name }}"
+                                                {{ $user->roles->pluck('name')->implode(' ') === $role->name ? 'selected' : '' }}>
+                                                {{ $role->name }}
+                                            </option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="submitEditproperty" type="button" class="btn btn-primary">Save changes</button>
+                    <button id="submitEditproperty" type="button" class="btn btn-info">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>

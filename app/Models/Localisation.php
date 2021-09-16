@@ -10,6 +10,6 @@ class Localisation extends Model
     use HasFactory;
     public function project()
     {
-        return $this->belongsTo(Project::Class);
+        return $this->belongsTo(Project::class);
     }
 }

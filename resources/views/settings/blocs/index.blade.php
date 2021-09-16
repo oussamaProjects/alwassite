@@ -10,7 +10,7 @@
                         @csrf
 
                         <div class="card ">
-                            <div class="card-header card-header-primary">
+                            <div class="card-header card-header-info">
                                 <h4 class="card-title">{{ __('Add bloc') }}</h4>
                                 <p class="card-category">{{ __('blocs information') }}</p>
                             </div>
@@ -19,7 +19,8 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="alert alert-success">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
                                                     <i class="material-icons">close</i>
                                                 </button>
                                                 <span>{{ session('status') }}</span>
@@ -40,6 +41,13 @@
                                         <div class="form-group">
                                             <input class="form-control" name="name" id="input-name" type="text"
                                                 placeholder="{{ __('Name') }}" required="true" aria-required="true" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <input class="form-control" name="paies_amount" id="input-paies_amount"
+                                                type="text" placeholder="{{ __('Paies amount') }}" required="true"
+                                                aria-required="true" />
                                         </div>
                                     </div>
                                 </div>
@@ -69,7 +77,7 @@
 
                             </div>
                             <div class="card-footer ml-auto">
-                                <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                                <button type="submit" class="btn btn-info">{{ __('Save') }}</button>
                             </div>
                         </div>
                     </form>
@@ -79,33 +87,22 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header card-header-info">
                             <h4 class="card-title ">Blocs</h4>
                             <p class="card-category"> Here you can manage blocs</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
-                                    <thead class=" text-primary">
+                                    <thead class=" text-info">
                                         <tr>
-                                            <th>
-                                                Name
-                                            </th>
-                                            <th>
-                                                Project Name
-                                            </th>
-                                            <th>
-                                                City
-                                            </th>
-                                            <th>
-                                                localisation
-                                            </th>
-                                            <th>
-                                                Creation date
-                                            </th>
-                                            <th class="text-right">
-                                                Actions
-                                            </th>
+                                            <th>Name</th>
+                                            <th>Paies amount</th>
+                                            <th>Project Name</th>
+                                            <th>City</th>
+                                            <th>localisation</th>
+                                            <th>Creation date</th>
+                                            <th class="text-right">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -113,6 +110,9 @@
                                             <tr>
                                                 <td>
                                                     {{ $bloc->name }}
+                                                </td>
+                                                <td>
+                                                    {{ $bloc->paies_amount }}
                                                 </td>
                                                 <td>
                                                     {{ $bloc->project->name }}
@@ -135,6 +135,14 @@
                                                         <i class="material-icons">edit</i>
                                                         <div class="ripple-container"></div>
                                                     </a>
+
+                                                    {!! Form::open(['action' => ['BlocController@destroy', $bloc->id], 'method' => 'DELETE', 'id' => 'form-delete-bloc-' . $bloc->id, 'class' => 'data-delete flex']) !!}
+                                                    <a class="deletebloc" data-form="bloc-{{ $bloc->id }}">
+                                                        <i class="material-icons">delete</i>
+                                                        <div class="ripple-container"></div>
+                                                    </a>
+                                                    {!! Form::close() !!}
+
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -150,45 +158,29 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header card-header-info">
                             <h4 class="card-title ">PAIMENTS</h4>
                             <p class="card-category"> Here you can manage payments</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
-                                    <thead class=" text-primary">
+                                    <thead class=" text-info">
                                         <tr>
 
-                                            <th>
-                                                Bloc
-                                            </th>
-                                            <th>
-                                                Month paie
-                                            </th>
-                                            <th>
-                                                Year paie
-                                            </th>
-                                            <th>
-                                                Paid
-                                            </th>
-                                            <th>
-                                                Should be paid
-                                            </th>
-                                            <th>
-                                                Impaid
-                                            </th>
+                                            <th>Bloc</th>
+                                            <th>Year paie</th>
+                                            <th>Paid</th>
+                                            <th>Should be paid</th>
+                                            <th>Impaid</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($bloc_need_to_be_paid as $payment)
+                                        @foreach ($blocs_payments as $payment)
                                             <tr>
 
                                                 <td>
                                                     {{ $payment->name }}
-                                                </td>
-                                                <td>
-                                                    {{ $payment->month_paie }}
                                                 </td>
                                                 <td>
                                                     {{ $payment->year_paie }}
@@ -216,8 +208,6 @@
     </div>
 
 
-
-
     <div class="modal fade" id="blocModal" tabindex="-1" role="">
         <div class="modal-dialog modal-login" role="document">
             <div class="modal-content">
@@ -242,6 +232,18 @@
                         <div class="form-group bmd-form-group">
                             <div class="input-group">
                                 <label class="col-sm-2 col-form-label" for="project_id">{{ __('Project') }}</label>
+                                <select id="city_id" class="form-control" name="city_id">
+                                    <option disabled selected>Cities</option>
+                                    @foreach ($cities as $city)
+                                        <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group bmd-form-group">
+                            <div class="input-group">
+                                <label class="col-sm-2 col-form-label" for="project_id">{{ __('Project') }}</label>
                                 <select id="project_id" class="form-control" name="project_id">
                                     <option disabled selected>Single Option</option>
                                     @foreach ($projects as $project)
@@ -251,10 +253,19 @@
                             </div>
                         </div>
 
+                        <div class="form-group bmd-form-group">
+                            <div class="input-group">
+                                <label class="col-sm-2 col-form-label"
+                                    for="paies_amount">{{ __('Paies amount') }}</label>
+                                <input class="form-control" name="paies_amount" id="paies_amount" type="text"
+                                    placeholder="{{ __('Paies amount') }}" required="true" aria-required="true" />
+                            </div>
+                        </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="submitEditbloc" type="button" class="btn btn-primary">Save changes</button>
+                    <button id="submitEditbloc" type="button" class="btn btn-info">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -271,12 +282,17 @@
                     }
                 });
 
+                $('.data-delete').on('click', function(e) {
+                    if (!confirm('Are you sure you want to delete?')) return;
+                    e.preventDefault();
+                    $('#form-delete-' + $(this).data('form')).submit();
+                });
+
                 $('body').on('change', '#input-city_id', function(event) {
                     event.preventDefault();
                     var id = this.value;
 
                     $.get('cities/' + id, function(data) {
-
                         $('#input-project_id').empty();
                         $('#input-project_id').append(
                             ' <option disabled selected>{{ __('Projects') }} </option>')
@@ -291,7 +307,27 @@
 
 
                         $.each(data.data.projects, function(index, project) {
+                            console.log(project);
                             $('#input-project_id')
+                                .append('<option value="' + project.id + '">' +
+                                    project.name + '</option>');
+                        });
+                    });
+                });
+
+
+                $('body').on('change', '#city_id', function(event) {
+                    event.preventDefault();
+                    var id = this.value;
+
+                    $.get('cities/' + id, function(data) {
+                        $('#project_id').empty();
+                        $('#project_id').append(
+                            ' <option disabled selected>{{ __('Projects') }} </option>')
+
+                        $.each(data.data.projects, function(index, project) {
+                            console.log(project);
+                            $('#project_id')
                                 .append('<option value="' + project.id + '">' +
                                     project.name + '</option>');
                         });
@@ -325,6 +361,7 @@
                     var id = $("#bloc_id").val();
                     var name = $("#name").val();
                     var project_id = $("#project_id").val();
+                    var paies_amount = $("#paies_amount").val();
 
                     var url = "{{ URL('blocs') }}" + "/" + id;
 
@@ -336,6 +373,7 @@
                             id: id,
                             name: name,
                             project_id: project_id,
+                            paies_amount: paies_amount,
                             _token: '{{ csrf_token() }}'
                         },
                         success: function(data) {
@@ -350,10 +388,11 @@
                     var id = $(this).data('id');
                     console.log(id)
                     $.get('blocs/' + id + '/edit', function(data) {
-                        console.log(data.data.id);
+                        console.log(data.data);
                         $('#bloc_id').val(data.data.id);
                         $('#name').val(data.data.name);
                         $('#project_id').val(data.data.project_id);
+                        $('#paies_amount').val(data.data.paies_amount);
                     })
                 });
 

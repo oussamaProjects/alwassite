@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateClaimsTable extends Migration
@@ -19,10 +20,10 @@ class CreateClaimsTable extends Migration
 
             $table->string('objet');
             $table->text('message');
-            $table->timestamp('date_envoi');
-            $table->timestamp('date_reponse');
+            $table->timestamp('date_envoi')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('date_reponse')->null();
             $table->string('num_rec')->unique();
-            $table->boolean('deleted');
+            $table->boolean('deleted')->default(0);
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bloc;
+use App\Models\Claim;
 use Illuminate\Http\Request;
 use Hash;
 use Session;
 use App\Models\User;
+use App\Notifications\PaymentNotification;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 
 class CustomAuthController extends Controller
 {
@@ -72,8 +78,48 @@ class CustomAuthController extends Controller
 
     public function dashboard()
     {
+
+        $user = auth()->user();
+
+        $need_to_be_paid = DB::table('properties')
+            ->leftJoin('pays', 'properties.id', '=', 'pays.property_id')
+            ->Join('blocs', 'properties.bloc_id', '=', 'blocs.id')
+            ->Join('projects', 'blocs.project_id', '=', 'projects.id')
+            ->Join('cities', 'projects.city_id', '=', 'cities.id')
+            ->Join('users', 'properties.user_id', '=', 'users.id')
+            ->select('users.id', 'properties.name', 'properties.num', 'properties.floor', 'pays.year_paie', 'cities.name as city', 'projects.name as project', 'blocs.name as bloc', 'users.nom as user', 'users.tel_mobile as tel_mobile')
+            ->where('users.id', '=', $user->id)
+            ->where('pays.month_paie', '!=', Carbon::now()->month)
+            ->where('pays.year_paie', '=', Carbon::now()->year)
+            ->distinct()
+            ->get()
+            ->toArray();
+
+        foreach ($need_to_be_paid as $key => $payment) {
+            Notification::send($user, new PaymentNotification($payment));
+        }
+
+
+        $claims = Claim::all();
+        $owners = User::all();
+        $blocs = Bloc::all();
+        $revenue = 1000;
+
+        $payments_per_month = DB::table('properties')
+            ->leftJoin('pays', 'properties.id', '=', 'pays.property_id')
+            ->Join('blocs', 'properties.bloc_id', '=', 'blocs.id')
+            ->Join('projects', 'blocs.project_id', '=', 'projects.id')
+            ->Join('cities', 'projects.city_id', '=', 'cities.id')
+            ->Join('users', 'properties.user_id', '=', 'users.id')
+            ->select('properties.name', 'properties.name', 'properties.num', 'properties.floor', 'pays.year_paie', 'cities.name as city', 'projects.name as project', 'blocs.name as bloc', 'users.nom as user', 'users.tel_mobile as tel_mobile')
+            ->where('pays.month_paie', '=', Carbon::now()->month - 1)
+            ->where('pays.year_paie', '=', Carbon::now()->year)
+            ->distinct()
+            ->get()
+            ->toArray();
+
         if (Auth::check()) {
-            return view('dashboard');
+            return view('dashboard', compact('payments_per_month', 'claims', 'owners', 'revenue', 'blocs'));
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');

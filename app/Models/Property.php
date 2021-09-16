@@ -25,7 +25,7 @@ class Property extends Model
         return $this->BelongsTo(Bloc::class);
     }
 
-    public function pays()
+    public function payments()
     {
         return $this->hasMany(Pay::class);
     }

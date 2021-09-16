@@ -15,4 +15,12 @@ class City extends Model
     {
         return $this->hasMany(Project::class);
     }
+
+    /**
+     * Get the ads for the region.
+     */
+    public function ads()
+    {
+        return $this->hasMany(Ad::class);
+    }
 }

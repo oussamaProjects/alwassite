@@ -1,0 +1,1127 @@
+.slider .additional-stage .item,
+.slider .additional-stage .item .image,
+.slider .stage .item,
+.slider .stage .item .image,
+section.contacts .office .office-box,
+section.interiors .slider .stage .item,
+section.location .map-overlay .dot {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+.slider .additional-stage,
+.slider .additional-stage .item,
+.slider .stage,
+.slider .stage .item,
+section.advantages .floating-layer-1,
+section.interiors .slider .stage,
+section.interiors .slider .stage .item,
+section.names-collection .floating-layer-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+.index-joker-text-block,
+.slider div.arr svg.arr,
+section.index-screen .block,
+section.index-screen .block .joker-block,
+section.location .map-overlay .dot .play,
+section.ttk-gallery .ttk-video-box .ttk-video .video-play,
+section.ttk-gallery .ttk-video-box .ttk-video .video-play svg.play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%)
+}
+
+.index-joker-next-page {
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%)
+}
+
+.px-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0;
+    width: 1px;
+    background-color: rgba(75, 87, 92, .2);
+    transition: height .2s ease
+}
+
+section.index-screen {
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
+section.index-screen .block {
+    background-color: #e3f1f6;
+    width: 89.645%;
+    height: 80.2%;
+    overflow: hidden
+}
+
+section.index-screen .block.top-block {
+    border: 0;
+    overflow: visible;
+    background-color: #transparent
+}
+
+section.index-screen .block .joker-block {
+    width: 96.391%;
+    top: -50px;
+    max-width: 1369px;
+    max-height: 2112px;
+    transform: translateY(-13%) translateX(-50%)
+}
+
+section.index-screen .block .joker-block img {
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
+.index-joker-text-block {
+    text-align: center;
+    width: 320px;
+    z-index: 20
+}
+
+.index-joker-text-block h1 {
+    color: #FFF;
+    letter-spacing: 13px;
+    font-weight: 400
+}
+
+.index-joker-text-block .text {
+    margin-top: 34px;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: .1px;
+    color: rgba(255, 255, 255, .8);
+    white-space: nowrap
+}
+
+.index-joker-next-page {
+    position: absolute;
+    bottom: 36px;
+    font-family: History, sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    color: #000;
+    cursor: pointer
+}
+
+.index-joker-line-pos {
+    position: absolute;
+    display: block;
+    bottom: 92px;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    z-index: 5
+}
+
+section.names-collection {
+    position: relative;
+    height: 640px
+}
+
+section.names-collection .floating-title {
+    top: 60px
+}
+
+section.names-collection .floating-layer-1 {
+    height: 100%;
+    background-color: #e3f1f6
+}
+
+section.names-collection .floating-layer-2 {
+    position: relative;
+    height: 100%
+}
+
+section.names-collection .container {
+    top: 355px
+}
+
+section.names-collection .text-box {
+    position: relative;
+    padding-bottom: 12px;
+    transition: opacity .3s ease;
+    left: 30%;
+    width: 533.33px
+}
+
+@media all and (min-width:1440px) {
+    .index-joker-line-pos {
+        bottom: 108px
+    }
+    section.names-collection .text-box {
+        width: 600px
+    }
+}
+
+@media all and (min-width:1600px) {
+    section.names-collection .text-box {
+        width: 666.67px;
+        left: 133.33px
+    }
+}
+
+section.names-collection .text-box .title {
+    font-family: History, sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: #333;
+    padding-bottom: 24px
+}
+
+section.names-collection .text-box p {
+    font-family: "Open Sans";
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: .1px;
+    font-weight: 300;
+    color: #323232
+}
+
+section.names-collection .text-box.hide {
+    opacity: 0
+}
+
+section.names-collection .text-box .px-line {
+    top: 100%
+}
+
+section.location {
+    position: relative;
+    padding-top: 164px;
+    padding-bottom: 98px
+}
+
+section.location .container {
+    z-index: 2
+}
+
+section.location .map,
+section.location .map-overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden
+}
+
+section.location .map .map-layers,
+section.location .map-overlay .map-layers {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%
+}
+
+section.location .map .map-layers svg,
+section.location .map-overlay .map-layers svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+section.location .map-overlay {
+    overflow: visible;
+    z-index: 60
+}
+
+section.location .map-overlay .dot {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    background-color: #1f252c;
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    transform: translate(-50%, -50%) scale(0);
+    cursor: pointer;
+    z-index: 2
+}
+
+section.location .map-overlay .dot.img1 {
+    background-image: url(/assets/public/images/barkli-map/1.jpg)
+}
+
+section.location .map-overlay .dot.img2 {
+    background-image: url(/assets/public/images/barkli-map/2.jpg)
+}
+
+section.location .map-overlay .dot.img3 {
+    background-image: url(/assets/public/images/barkli-map/3.jpg)
+}
+
+section.location .map-overlay .dot.img4 {
+    background-image: url(/assets/public/images/barkli-map/4.jpg)
+}
+
+section.location .map-overlay .dot.img5 {
+    background-image: url(/assets/public/images/barkli-map/5.jpg)
+}
+
+section.location .map-overlay .dot.img6 {
+    background-image: url(/assets/public/images/barkli-map/6.jpg)
+}
+
+section.location .map-overlay .dot.img7 {
+    background-image: url(/assets/public/images/barkli-map/7.jpg)
+}
+
+section.location .map-overlay .dot.img8 {
+    background-image: url(/assets/public/images/barkli-map/8.jpg)
+}
+
+section.location .map-overlay .dot.hide-image {
+    background-image: none!important
+}
+
+section.location .map-overlay .dot .play {
+    height: 32px;
+    width: 32px;
+    transform: translate(-50%, -50%);
+    background-color: #373a42;
+    border-radius: 50%;
+    opacity: 0
+}
+
+section.location .map-overlay .dot .play svg {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    height: 24px;
+    width: 24px;
+    fill: #fff
+}
+
+section.location .map-overlay .dot.open {
+    z-index: 10
+}
+
+section.location .map-overlay .dot.open .play {
+    display: none
+}
+
+section.location .blinkin-dot {
+    position: absolute;
+    transform: translate(-50%, -50%) scale(0);
+    height: 20px;
+    width: 20px;
+    background-color: #eb5c3f;
+    border-radius: 50%;
+    z-index: 1
+}
+
+section.location .blinkin-dot.state1 {
+    transition: transform 1s ease, opacity 1s ease;
+    transform: translate(-50%, -50%) scale(1)
+}
+
+section.location .blinkin-dot.state2 {
+    transition: transform 1s ease, opacity 1s ease;
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0
+}
+
+section.location .blinkin-dot svg {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    height: 12px;
+    width: 12px;
+    fill: #fff
+}
+
+section.location .link {
+    z-index: 61
+}
+
+.slider .additional-stage,
+.slider .stage {
+    overflow: hidden
+}
+
+.slider .additional-stage .item .image,
+.slider .stage .item .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-origin: padding-box;
+    background-clip: border-box
+}
+
+.slider div.arr {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    z-index: 10
+}
+
+.slider div.arr svg.arr {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    fill: #fff
+}
+
+.slider div.arr:hover .circle-border {
+    stroke-width: 1.5px;
+    stroke: #fff
+}
+
+.slider div.arr.arrl {
+    left: 8.333333%
+}
+
+.slider div.arr.arrr {
+    right: 8.333333%
+}
+
+section.wide-slider {
+    width: 100%;
+    max-height: 720px;
+    height: 640px;
+    margin: 0 auto 104px
+}
+
+section.wide-slider .stage .item .title-block {
+    margin-top: 56px;
+    margin-left: 16%;
+    z-index: 5
+}
+
+@media only screen and (min-width:1440px) {
+    section.wide-slider {
+        height: 780px
+    }
+    section.wide-slider .stage .item .title-block {
+        margin-top: 72px
+    }
+}
+
+section.wide-slider .stage .item .title-block .title {
+    font-family: History, sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    color: #FFF
+}
+
+section.wide-slider .stage .item .title-block .subtitle {
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255, 255, 255, .6);
+    font-size: 14px
+}
+
+section.ttk-gallery {
+    position: relative
+}
+
+section.ttk-gallery .px-line {
+    top: -103px;
+    left: 58.33333%
+}
+
+section.ttk-gallery .container.lifted {
+    z-index: 2
+}
+
+section.ttk-gallery .pad-top {
+    padding-top: 80px
+}
+
+section.ttk-gallery .ttk-video-box {
+    position: absolute;
+    top: 50px;
+    width: 41.66667%;
+    max-width: 700px;
+    right: 0
+}
+
+@media only screen and (min-width:1600px) {
+    section.ttk-gallery .ttk-video-box {
+        width: 41.66667%;
+        right: 8.33333%
+    }
+}
+
+section.ttk-gallery .ttk-video-box .ttk-video {
+    position: relative;
+    display: block;
+    transform-origin: 100% 0;
+    transition: transform .5s ease;
+    cursor: pointer
+}
+
+section.ttk-gallery .ttk-video-box .ttk-video img {
+    position: relative;
+    width: 100%;
+    height: auto
+}
+
+section.ttk-gallery .ttk-video-box .ttk-video .video-play {
+    border-radius: 50%;
+    background-color: #fff;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, .26)
+}
+
+section.ttk-gallery .ttk-video-box .ttk-video .video-play svg.play {
+    height: 24px;
+    width: 24px;
+    fill: #333
+}
+
+section.ttk-gallery .ttk-video-box .ttk-video .video-play svg.circle-border {
+    transition: .3s
+}
+
+section.ttk-gallery .ttk-video-box .ttk-video .video-play:hover svg.circle-border {
+    stroke: #333;
+    stroke-width: 2px
+}
+
+section.ttk-gallery .ttk-video-box .ttk-card {
+    position: absolute;
+    bottom: -100px;
+    left: -16.6%;
+    width: 320px;
+    height: 200px;
+    border-radius: 6px;
+    background-color: #30383b;
+    transform-origin: 0 100%;
+    transition: transform .5s ease
+}
+
+section.ttk-gallery .ttk-video-box .ttk-card .text {
+    margin-top: 128px;
+    padding-left: 40px;
+    padding-right: 32px
+}
+
+section.ttk-gallery .ttk-video-box .ttk-card .text .name {
+    font-family: History, sans-serif;
+    font-size: 16px;
+    letter-spacing: 1.4px;
+    color: #eebd81;
+    float: left;
+    margin-top: 13px
+}
+
+section.interiors .menu .menu-item .title,
+section.interiors .menu .menu-item ul.options li {
+    font-family: "Open Sans";
+    line-height: 10px;
+    letter-spacing: .8px;
+    cursor: pointer
+}
+
+section.ttk-gallery .ttk-video-box .ttk-card .text svg.logo {
+    position: absolute;
+    bottom: 28px;
+    right: 40px;
+    height: 40px;
+    width: 40px;
+    fill: #eebd81
+}
+
+section.ttk-gallery .ttk-video-box:hover .ttk-video {
+    transform: scale(1.1)
+}
+
+section.ttk-gallery .ttk-video-box:hover .ttk-card {
+    transform: scale(.7)
+}
+
+section.ttk-gallery .last-title {
+    margin-top: 311px
+}
+
+@media only screen and (min-width:1600px) {
+    section.ttk-gallery .last-title {
+        margin-top: 360px
+    }
+}
+
+@media only screen and (min-width:1920px) {
+    section.ttk-gallery .last-title {
+        margin-top: 380px
+    }
+}
+
+section.ttk-gallery .joker {
+    position: absolute;
+    right: 0;
+    top: 566px;
+    width: 500px;
+    height: 1662px;
+    z-index: 1;
+    overflow: hidden
+}
+
+section.ttk-gallery .joker .joker-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 1662px
+}
+
+section.ttk-gallery .joker img {
+    width: 100%;
+    height: 100%
+}
+
+@media only screen and (min-width:1440px) {
+    section.ttk-gallery .description-text {
+        width: 374px
+    }
+}
+
+@media only screen and (min-width:1600px) {
+    section.ttk-gallery .description-text {
+        width: 374px
+    }
+    section.ttk-gallery .description-text.shift-right {
+        width: 320px
+    }
+}
+
+@media only screen and (min-width:1440px) {
+    section.ttk-gallery .description-text.shift-right {
+        width: 320px
+    }
+}
+
+section.house {
+    z-index: 2
+}
+
+section.house .slider {
+    position: relative;
+    left: 8.33333%;
+    width: 91.66667%;
+    max-width: 1600px;
+    height: 600px
+}
+
+@media all and (min-width:2500px) {
+    section.house .slider {
+        left: 0;
+        margin: 0 auto
+    }
+}
+
+section.interiors {
+    position: relative;
+    width: 100%;
+    height: 900px;
+    margin-top: 100px;
+    z-index: 3
+}
+
+section.interiors .floating-title {
+    top: 70px
+}
+
+section.interiors .floating-layer-2 {
+    position: relative;
+    height: 100%
+}
+
+section.interiors .menu {
+    position: relative;
+    margin-top: 140px
+}
+
+section.interiors .menu .position {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    top: -85px;
+    left: 290px;
+    transform: translateY(0);
+    transition: transform 1s ease
+}
+
+section.interiors .menu .position .number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    text-align: center
+}
+
+section.interiors .menu .menu-item {
+    position: relative;
+    display: block;
+    padding-bottom: 74px
+}
+
+section.interiors .menu .menu-item .title {
+    position: relative;
+    font-size: 14px;
+    margin-bottom: 24px;
+    padding-left: 20px;
+    font-weight: 600;
+    color: #b4cad4;
+    transition: color .3s ease;
+    width: 320px
+}
+
+section.interiors .menu .menu-item .title:hover {
+    color: #F46244
+}
+
+section.interiors .menu .menu-item .title:hover:after {
+    background-color: #F46244
+}
+
+section.interiors .menu .menu-item .title .line {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 188px;
+    height: 1px;
+    overflow: hidden
+}
+
+section.interiors .menu .menu-item .title .line:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transform: translateX(-100%);
+    transition: transform 1s ease;
+    background-color: rgba(75, 87, 92, .2)
+}
+
+section.interiors .menu .menu-item .title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    height: 4px;
+    width: 4px;
+    background-color: #b4cad4;
+    opacity: 1;
+    transition: opacity .3s ease, background-color .3s ease
+}
+
+section.interiors .menu .menu-item .options-box {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    transition: height .5s ease
+}
+
+section.interiors .menu .menu-item ul.options {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none
+}
+
+section.interiors .menu .menu-item ul.options li {
+    position: relative;
+    display: block;
+    font-size: 12px;
+    padding-left: 20px;
+    padding-bottom: 24px;
+    color: #4b575c;
+    transition: color .3s ease
+}
+
+section.interiors .menu .menu-item ul.options li:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 3px;
+    border-radius: 50%;
+    height: 4px;
+    width: 4px;
+    background-color: #4b575c;
+    opacity: 0;
+    transition: opacity .3s ease
+}
+
+section.interiors .menu .menu-item ul.options li:hover {
+    color: #F46244
+}
+
+section.interiors .menu .menu-item ul.options li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0
+}
+
+section.interiors .menu .menu-item ul.options li.active {
+    cursor: default
+}
+
+section.interiors .menu .menu-item ul.options li.active:hover {
+    color: #4b575c
+}
+
+section.interiors .menu .menu-item ul.options li.active:after {
+    opacity: 1
+}
+
+section.interiors .menu .menu-item:last-child,
+section.interiors .menu .menu-item:last-child ul.options li:last-child {
+    margin-bottom: 0
+}
+
+section.interiors .menu .menu-item.active .title {
+    color: #4b575c;
+    cursor: default
+}
+
+section.interiors .menu .menu-item.active .title:after {
+    opacity: 0
+}
+
+section.interiors .menu .menu-item.active .title .position {
+    opacity: 1
+}
+
+section.interiors .menu .menu-item.active .title .line:after {
+    transform: translateX(0)
+}
+
+section.interiors .slider {
+    position: absolute;
+    top: 160px;
+    right: 0;
+    width: 58.333333333%;
+    height: 640px;
+    background-color: #999
+}
+
+section.interiors .slider .stage {
+    overflow: hidden
+}
+
+section.advantages {
+    position: relative;
+    width: 100%;
+    height: 640px
+}
+
+section.advantages .cards {
+    top: 193px
+}
+
+section.advantages ul.dots {
+    bottom: -28px
+}
+
+section.advantages .floating-title {
+    top: 108px
+}
+
+section.advantages .floating-layer-1 {
+    height: 100%;
+    background-color: #e3f1f6
+}
+
+section.advantages .floating-layer-2 {
+    position: relative;
+    height: 100%
+}
+
+section.advantages .content a {
+    color: #7ea8b9;
+    text-decoration: none;
+    transition: .3s;
+    display: inline-block;
+    border-bottom: 1px solid transparent
+}
+
+section.advantages .content a:hover {
+    border-bottom: 1px solid rgba(152, 188, 201, .5)
+}
+
+section.flats-collection {
+    position: relative;
+    width: 100%;
+    padding: 90px 0 48px;
+    background-color: #e3f1f6;
+    text-align: right
+}
+
+section.flats-collection .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: left;
+    transform: translate(-50%, -50%);
+    max-width: 1660px
+}
+
+section.flats-collection .container .link {
+    margin-top: 60px
+}
+
+section.flats-collection .building {
+    position: relative;
+    display: inline-block;
+    font-size: 0;
+    padding: 0;
+    margin: 0 72px 48px 0;
+    line-height: 0
+}
+
+@media all and (min-width:1440px) {
+    section.flats-collection .building {
+        margin-right: 88px
+    }
+}
+
+section.flats-collection .building svg.building {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    fill: #C9E3EA
+}
+
+section.contacts {
+    position: relative;
+    width: 100%;
+    height: 670px;
+    padding-top: 72px
+}
+
+section.contacts .thank-box {
+    left: 0;
+    top: 0
+}
+
+section.contacts .container {
+    transition: opacity .5s ease;
+    opacity: 1
+}
+
+section.contacts.map-opened .container {
+    opacity: 0
+}
+
+section.contacts.map-closing .container {
+    transition-delay: .4s
+}
+
+section.contacts form {
+    position: relative;
+    display: block;
+    width: 537px;
+    font-size: 0;
+    margin-top: 60px
+}
+
+section.contacts form div.input.name {
+    width: 320px
+}
+
+section.contacts form div.input.phone {
+    width: 173px;
+    margin-left: 40px
+}
+
+section.contacts form div.input.message {
+    margin-top: 20px
+}
+
+section.contacts form div.input.agree {
+    margin: 40px 0 60px
+}
+
+section.contacts .office {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 670px;
+    background-color: #30383b;
+    font-size: 0;
+    white-space: nowrap;
+    z-index: 10
+}
+
+section.contacts .office .office-box {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 367px;
+    height: 100%;
+    z-index: 5;
+    overflow: hidden;
+    background-image: url(/assets/public/images/office.png);
+    background-color: #415861
+}
+
+section.contacts .office .office-box:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #30383b;
+    opacity: .4;
+    z-index: 3
+}
+
+section.contacts .office .office-box video {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: auto;
+    z-index: 2
+}
+
+section.contacts .office .office-box .title {
+    position: absolute;
+    top: 72px;
+    left: 14%;
+    color: #fff;
+    font-family: History, sans-serif;
+    font-size: 32px;
+    letter-spacing: 2.4px;
+    line-height: 48px;
+    z-index: 4
+}
+
+section.contacts .office .office-box .phone-and-address {
+    position: absolute;
+    bottom: 72px;
+    left: 14%;
+    color: #fff;
+    z-index: 4
+}
+
+section.contacts .office .office-box .phone-and-address .phone {
+    position: relative;
+    display: block;
+    font-size: 24px;
+    font-family: History, sans-serif;
+    line-height: 48px
+}
+
+section.contacts .office .office-box .phone-and-address .address {
+    position: relative;
+    display: block;
+    font-size: 14px;
+    font-family: "Open Sans"
+}
+
+section.contacts .office .contact-map {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    transition: width 1s ease
+}
+
+section.contacts .office .contact-map .map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%
+}
+
+section.contacts .office .show-on-map {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 60px;
+    height: 100%;
+    cursor: pointer;
+    transition: .3s
+}
+
+section.contacts .office .show-form {
+    position: absolute;
+    top: 0;
+    left: -60px;
+    width: 60px;
+    height: 100%;
+    background-color: #30383b;
+    transform: translateX(60px);
+    transition: transform .5s ease, background-color .3s ease;
+    cursor: pointer;
+    z-index: 1
+}
+
+section.contacts .office .show-form.show {
+    transform: translateX(0)
+}
+
+section.contacts .office .show-form,
+section.contacts .office .show-on-map {
+    letter-spacing: 1.6px
+}
+
+section.contacts .office .show-form .caption,
+section.contacts .office .show-on-map .caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 50%;
+    transform: rotate(-90deg) translateX(-50%);
+    color: #fff;
+    font-size: 14px;
+    font-family: History, sans-serif;
+    white-space: nowrap;
+    transition: .3s
+}
+
+section.contacts .office .show-form:hover,
+section.contacts .office .show-on-map:hover {
+    background-color: #eb5c3f
+}
+
+.flat-viewer {
+    display: none
+}
