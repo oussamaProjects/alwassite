@@ -1,6 +1,7 @@
 @extends('layouts.app', ['activePage' => 'ads', 'titlePage' => __('Manage ads')])
 
 @section('content')
+
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -83,6 +84,7 @@
                                             </select>
                                         </div>
                                     </div>
+
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <select id="input-city_id" class="form-control" name="city">
@@ -97,13 +99,116 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <div class="form-group">
                                             <textarea name="texte" id="input-text" cols="30" rows="10"
                                                 class="form-control"></textarea>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row">
+
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <input class="form-control" name="superficy" id="input-superficy" type="text"
+                                                placeholder="{{ __('Superficy') }}" required="true"
+                                                aria-required="true" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <input class="form-control" name="rooms" id="input-rooms" type="text"
+                                                placeholder="{{ __('Rooms') }}" required="true" aria-required="true" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <input class="form-control" name="etg" id="input-etg" type="text"
+                                                placeholder="{{ __('Etg') }}" required="true" aria-required="true" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <input class="form-control" name="contrat" id="input-contrat" type="text"
+                                                placeholder="{{ __('Contrat') }}" required="true" aria-required="true" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <div class="product-labels__title">Balcony</div>
+                                            <label class="product-labels__item">
+                                                <input type="radio" class="product-labels__checkbox" name="balcony" checked
+                                                    value="false">
+                                                <span class="product-labels__txt">Non</span>
+                                            </label>
+
+                                            <label class="product-labels__item">
+                                                <input type="radio" class="product-labels__checkbox" name="balcony"
+                                                    value="true">
+                                                <span class="product-labels__txt">Yes</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+
+                                            <div class="product-labels__title">Swimming pool</div>
+                                            <label class="product-labels__item">
+                                                <input type="radio" class="product-labels__checkbox" name="swimming_pool"
+                                                    checked value="false">
+                                                <span class="product-labels__txt">Non</span>
+                                            </label>
+
+                                            <label class="product-labels__item">
+                                                <input type="radio" class="product-labels__checkbox" name="swimming_pool"
+                                                    value="true">
+                                                <span class="product-labels__txt">Yes</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+
+                                            <div class="product-labels__title">Car park</div>
+                                            <label class="product-labels__item">
+                                                <input type="radio" class="product-labels__checkbox" name="car_park" checked
+                                                    value="false">
+                                                <span class="product-labels__txt">Non</span>
+                                            </label>
+
+                                            <label class="product-labels__item">
+                                                <input type="radio" class="product-labels__checkbox" name="car_park"
+                                                    value="true">
+                                                <span class="product-labels__txt">Yes</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <select id="input-vue" name="vue" class="form-control">
+                                                <option disabled selected>La vue</option>
+                                                <option value="no"> Non</option>
+                                                <option value="sea"> Mêre</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
 
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -205,9 +310,40 @@
                                                 user
                                             </th>
 
+                                            <th>
+                                                superficy
+                                            </th>
+
+                                            <th>
+                                                etg
+                                            </th>
+
+                                            <th>
+                                                contrat
+                                            </th>
+
+                                            <th>
+                                                balcony
+                                            </th>
+
+                                            <th>
+                                                swimming_pool
+                                            </th>
+
+                                            <th>
+                                                vue
+                                            </th>
+
+                                            <th>
+                                                car_park
+                                            </th>
 
                                             <th>
                                                 Email
+                                            </th>
+
+                                            <th>
+                                                Active
                                             </th>
 
                                             <th>
@@ -239,8 +375,45 @@
                                                 <td>
                                                     {{ $ad->user->nom }}
                                                 </td>
+
                                                 <td>
                                                     {{ $ad->email }}
+                                                </td>
+
+                                                <td>
+                                                    {{ $ad->superficy }}
+                                                </td>
+
+                                                <td>
+                                                    {{ $ad->etg }}
+                                                </td>
+
+                                                <td>
+                                                    {{ $ad->contrat }}
+                                                </td>
+
+                                                <td>
+                                                    {{ $ad->balcony }}
+                                                </td>
+
+                                                <td>
+                                                    {{ $ad->swimming_pool }}
+                                                </td>
+
+                                                <td>
+                                                    {{ $ad->vue }}
+                                                </td>
+
+                                                <td>
+                                                    {{ $ad->car_park }}
+                                                </td>
+
+                                                <td>
+                                                    {{ $ad->email }}
+                                                </td>
+
+                                                <td>
+                                                    {{ $ad->active }}
                                                 </td>
 
                                                 <td>
@@ -248,7 +421,8 @@
                                                 </td>
 
                                                 <td class="td-actions text-right">
-                                                    <a class="editProject" rel="tooltip" class="btn btn-success btn-link"
+                                                    <a class="editProject" rel="tooltip"
+                                                        class="btn btn-success btn-link"
                                                         href="{{ route('ads.edit', $ad->id) }}" data-original-title=""
                                                         title="" data-toggle="modal" data-id="{{ $ad->id }}"
                                                         data-target="#adModal">
@@ -269,9 +443,6 @@
             </div>
         </div>
     </div>
-
-
-
 
     <div class="modal fade" id="adModal" tabindex="-1" role="">
         <div class="modal-dialog modal-login" role="document">

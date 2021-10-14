@@ -41,7 +41,7 @@
                         <select class="custom-select" name="category" id="category">
                             <option disabled selected>Single Option</option>
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" @if ($loop->first) selected @endif>{{ $category->name }}
+                                <option value="{{ $category->id }}">{{ $category->name }}
                                 </option>
                             @endforeach
                         </select>
@@ -52,7 +52,7 @@
                         <select class="custom-select" name="city" id="city">
                             <option disabled selected>Single Option</option>
                             @foreach ($cities as $city)
-                                <option value="{{ $city->id }}" @if ($loop->first) selected @endif>{{ $city->name }}</option>
+                                <option value="{{ $city->id }}">{{ $city->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -75,7 +75,84 @@
                         @endif
                     </div>
 
+                    @include('myaccount.ads.form-group', [
+                    'title' => 'superficy',
+                    'type' => 'text',
+                    'name' => 'superficy',
+                    'required' => true
+                    ]);
 
+                    @include('myaccount.ads.form-group', [
+                    'title' => 'rooms',
+                    'type' => 'text',
+                    'name' => 'rooms',
+                    'required' => true
+                    ]);
+
+                    @include('myaccount.ads.form-group', [
+                    'title' => 'etg',
+                    'type' => 'text',
+                    'name' => 'etg',
+                    'required' => true
+                    ]);
+
+
+                    <div class="form-group">
+                        <div class="product-labels__title">Balcony</div>
+                        <label class="product-labels__item">
+                            <input type="radio" class="product-labels__checkbox" name="balcony" checked value="false">
+                            <span class="product-labels__txt">Non</span>
+                        </label>
+
+                        <label class="product-labels__item">
+                            <input type="radio" class="product-labels__checkbox" name="balcony" value="true">
+                            <span class="product-labels__txt">Yes</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="product-labels__title">Swimming pool</div>
+                        <label class="product-labels__item">
+                            <input type="radio" class="product-labels__checkbox" name="swimming_pool" checked value="false">
+                            <span class="product-labels__txt">Non</span>
+                        </label>
+
+                        <label class="product-labels__item">
+                            <input type="radio" class="product-labels__checkbox" name="swimming_pool" value="true">
+                            <span class="product-labels__txt">Yes</span>
+                        </label>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <div class="product-labels__title">Car park</div>
+                        <label class="product-labels__item">
+                            <input type="radio" class="product-labels__checkbox" name="car_park" checked value="false">
+                            <span class="product-labels__txt">Non</span>
+                        </label>
+
+                        <label class="product-labels__item">
+                            <input type="radio" class="product-labels__checkbox" name="car_park" value="true">
+                            <span class="product-labels__txt">Yes</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <select id="input-vue" name="vue" class="form-control">
+                            <option disabled selected>La vue</option>
+                            <option value="no"> Non</option>
+                            <option value="sea"> Mêre</option>
+                        </select>
+                    </div>
+
+                    @include('myaccount.ads.form-group', [
+                    'title' => 'condition',
+                    'type' => 'text',
+                    'name' => 'condition',
+                    'required' => true
+                    ]);
 
                     <div class="card">
                         <h5 class="card-header">Votre localisation</h5>
@@ -97,7 +174,37 @@
 
                             <div class="form-group">
                                 <label for="commune">Commune</label>
-                                <select class="custom-select" name="commune" id="commune"></select>
+                                <select class="custom-select" name="commune" id="commune">
+                                    <option value="0"> Quartier</option>
+                                    <option value="achakar"> Achakar</option>
+                                    <option value="autres"> Autres</option>
+                                    <option value="bella-vista"> Bella vista</option>
+                                    <option value="boubana"> Boubana</option>
+                                    <option value="branes"> Branes</option>
+                                    <option value="californie"> Californie</option>
+                                    <option value="casabarata"> Casabarata</option>
+                                    <option value="castilla"> Castilla</option>
+                                    <option value="centre-ville"> Centre ville</option>
+                                    <option value="gzenaya"> Gzenaya</option>
+                                    <option value="iberia-tanger"> Iberia</option>
+                                    <option value="jbel-kbir"> Jbel kbir</option>
+                                    <option value="jebilat"> Jebilat</option>
+                                    <option value="kasbah"> Kasbah</option>
+                                    <option value="malabata"> Malabata</option>
+                                    <option value="marschan"> Marschan</option>
+                                    <option value="medina-tanger"> Medina</option>
+                                    <option value="moujaheddine"> Moujaheddine</option>
+                                    <option value="nejma"> Nejma</option>
+                                    <option value="nuinuiche"> Nuinuiche</option>
+                                    <option value="playa"> Playa</option>
+                                    <option value="plaza-toro"> Plaza Toro</option>
+                                    <option value="quartier-administratif"> Quartier administratif</option>
+                                    <option value="route-de-rabat"> Route de Rabat</option>
+                                    <option value="route-de-tetouan"> Route de Tétouan</option>
+                                    <option value="route-kser-sghir"> Route Ksar sghir</option>
+                                    <option value="tanga-balia"> Tanga balia</option>
+                                    <option value="val-fleuri"> Val fleuri</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -178,6 +285,168 @@
 
             </div>
         </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title ">ads</h4>
+                        <p class="card-category"> Here you can manage ads</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-info">
+                                    <tr>
+
+                                        <th>
+                                            Title
+                                        </th>
+
+                                        <th>
+                                            City
+                                        </th>
+
+                                        <th>
+                                            Category
+                                        </th>
+
+                                        <th>
+                                            user
+                                        </th>
+
+                                        <th>
+                                            superficy
+                                        </th>
+
+                                        <th>
+                                            etg
+                                        </th>
+
+                                        <th>
+                                            contrat
+                                        </th>
+
+                                        <th>
+                                            balcony
+                                        </th>
+
+                                        <th>
+                                            swimming_pool
+                                        </th>
+
+                                        <th>
+                                            vue
+                                        </th>
+
+                                        <th>
+                                            car_park
+                                        </th>
+
+                                        <th>
+                                            Email
+                                        </th>
+
+                                        <th>
+                                            Active
+                                        </th>
+
+                                        <th>
+                                            Creation date
+                                        </th>
+
+                                        <th class="text-right">
+                                            Actions
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($ads as $ad)
+                                        <tr>
+
+                                            <td>
+                                                {{ $ad->title }}
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->city->name }}
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->category->name }}
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->user->nom }}
+                                                {{ $ad->email }}
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->superficy }}
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->etg }}
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->contrat }}
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->balcony }}
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->swimming_pool }}
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->vue }}
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->car_park }}
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->email }}
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->active }}
+                                                @foreach ($ad->photos() as $photo)
+                                                    {{ $photo->filename }}
+                                                @endforeach
+                                            </td>
+
+                                            <td>
+                                                {{ $ad->created_at->toDayDateTimeString() }}
+                                            </td>
+
+                                            <td class="td-actions text-right">
+                                                <a class="editProject" rel="tooltip" class="btn btn-success btn-link"
+                                                    href="{{ route('ads.edit', $ad->id) }}" data-original-title=""
+                                                    title="" data-toggle="modal" data-id="{{ $ad->id }}"
+                                                    data-target="#adModal">
+                                                    <i class="material-icons">edit</i>
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     @endsection
 
     @push('js')

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Ad extends Model
 {
@@ -43,12 +44,15 @@ class Ad extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
     /**
-     * Get the photos for the ad.
+     * Get all of the photod for the Ad
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function photos()
+    public function photos(): HasMany
     {
-        return $this->hasMany(Upload::class);
+        return $this->hasMany(Upload::class, 'ad_id', 'id');
     }
 
     /**

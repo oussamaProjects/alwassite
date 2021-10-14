@@ -55,8 +55,21 @@ class AdsController extends Controller
 
         $categories = Category::all();
         $cities = City::all();
+        $ads = Ad::all();
 
-        return view('myaccount.ads.create', compact('categories', 'cities'));
+        return view('myaccount.ads.create', compact('categories', 'cities', 'ads'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function ads(Request $request)
+    {
+
+        $ads = Ad::where('Active', '=', false)->get();
+        return view('front.ads.index', compact('ads'));
     }
 
     /**
@@ -67,6 +80,8 @@ class AdsController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
+
         $validate = $this->validate($request, [
             'title' => 'required|string',
             'texte' => 'required',
@@ -77,6 +92,16 @@ class AdsController extends Controller
         $ad = Ad::create([
             'title'          => $request->title,
             'texte'          => $request->texte,
+
+            'superficy'      => $request->superficy,
+            'rooms'          => $request->rooms,
+            'etg'            => $request->etg,
+            'contrat'        => $request->contrat,
+            'balcony'        => $request->balcony,
+            'swimming_pool'  => $request->swimming_pool,
+            'vue'            => $request->vue,
+            'car_park'       => $request->car_park,
+
             'category_id'    => $request->category,
             'city_id'        => $request->city,
             'user_id'        => auth()->check() ? auth()->id() : 0,
@@ -113,6 +138,18 @@ class AdsController extends Controller
         return response()->json([
             'data' => $data
         ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function details(Ad $ad)
+    {
+
+        return view('front.ads.details', compact('ad'));
     }
 
     /**

@@ -19,14 +19,14 @@
                 </a>
             </li>
             <li
-                class="nav-item {{ $activePage == 'blocs' || $activePage == 'cities' || $activePage == 'projects' || $activePage == 'properties' || $activePage == 'owners' ? ' active' : '' }}">
+                class="nav-item {{ $activePage == 'blocs' || $activePage == 'cities' || $activePage == 'projects' || $activePage == 'properties' || $activePage == 'owners' || $activePage == 'service' ? ' active' : '' }}">
                 <a class="nav-link" data-toggle="collapse" href="#settings" aria-expanded="true">
                     {{-- <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i> --}}
                     <p>{{ __('Paramètres') }}
                         <b class="caret"></b>
                     </p>
                 </a>
-                <div class="collapse {{ $activePage == 'blocs' || $activePage == 'cities' || $activePage == 'projects' || $activePage == 'properties' || $activePage == 'owners' ? ' show' : '' }}"
+                <div class="collapse {{ $activePage == 'blocs' || $activePage == 'cities' || $activePage == 'projects' || $activePage == 'properties' || $activePage == 'owners' || $activePage == 'service' ? ' show' : '' }}"
                     id="settings">
                     <ul class="nav">
 
@@ -72,6 +72,12 @@
                             </a>
                         </li>
 
+                        <li class="nav-item{{ $activePage == 'service' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{ route('services.index') }}">
+                                <span class="sidebar-mini"> S </span>
+                                <span class="sidebar-normal">{{ __('Services') }} </span>
+                            </a>
+                        </li>
 
                     </ul>
                 </div>
@@ -153,7 +159,8 @@
                         <b class="caret"></b>
                     </p>
                 </a>
-                <div class="collapse {{ $activePage == 'ads' ? ' show' : '' }}" id="ads">
+                <div class="collapse {{ $activePage == 'ads' || $activePage == 'service_calculator' ? ' show' : '' }}"
+                    id="ads">
                     <ul class="nav">
 
                         <li class="nav-item{{ $activePage == 'ads' ? ' active' : '' }}">
@@ -163,6 +170,12 @@
                             </a>
                         </li>
 
+                        <li class="nav-item{{ $activePage == 'service_calculator' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{ route('service.calculator') }}">
+                                <span class="sidebar-mini"> C </span>
+                                <span class="sidebar-normal">{{ __('Calculateur') }} </span>
+                            </a>
+                        </li>
 
                     </ul>
                 </div>

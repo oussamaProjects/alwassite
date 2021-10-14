@@ -30,23 +30,46 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="material-icons">notifications</i>
-                        <span class="notification">5</span>
-                        <p class="d-lg-none d-md-block">
-                            {{ __('Some Actions') }}
-                        </p>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">{{ __('Mike John responded to your email') }}</a>
 
-                        @foreach ($notifications as $notification)
+                @if (auth()->user()->notifications->count())
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">notifications</i>
+                            <span class="notification"> {{ auth()->user()->unreadnotifications->count() }}</span>
+                            <p class="d-lg-none d-md-block">
+                                {{ __('Some Actions') }} <sup
+                                    class="btn btn-danger btn-sm rounded">{{ auth()->user()->readnotifications->count() }}</sup>
+                                <sup class="btn btn-success btn-sm rounded">
+                                    {{ auth()->user()->unreadnotifications->count() }}</sup>
+                            </p>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            @foreach (auth()->user()->notifications as $notification)
+                                @if ($notification->read_at)
+                                    <a class="dropdown-item" href="#">
+                                        <p class="text-danger">{{ var_dump($notification->data) }}</p>
+                                    </a>
+                                @else
+                                    <a class="dropdown-item" href="#">
+                                        <p class="text-success">{{ var_dump($notification->data) }}</p>
+                                    </a>
+                                @endif
+                            @endforeach
+                            @if (auth()->user()->unreadnotifications->count())
+                                <a href="{{ route('markAsRead') }}"
+                                    class="btn btn-default border border-success text-success">Mark as read.</a>
+                            @endif
+
+                            {{-- @foreach ($notifications as $notification)
                             <a class="dropdown-item" href="#">{{ $notification->name }}</a>
-                        @endforeach
-                    </div>
-                </li>
+                        @endforeach --}}
+                        </div>
+                    </li>
+
+                @endif
+
+
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">

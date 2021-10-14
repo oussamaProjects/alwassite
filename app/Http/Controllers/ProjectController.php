@@ -52,6 +52,7 @@ class ProjectController extends Controller
         $localisation = new Localisation();
         $localisation->long = $request->input('long');
         $localisation->lat = $request->input('lat');
+
         $localisation->nale = '--';
         $localisation->save();
 
@@ -60,7 +61,8 @@ class ProjectController extends Controller
         if ($check_name !== null) {
             return redirect()->back()->with('failure', 'Le nom de la ville exist deja !');
         }
-
+        $project->nbr_property = $request->input('nbr_property');
+        $project->paies_amount = $request->input('paies_amount');
         $project->name = $request->input('name');
         $project->city_id = $request->input('city_id');
         $project->localisation_id = $localisation->id;
@@ -101,8 +103,11 @@ class ProjectController extends Controller
             'name' => $project->name,
             'city_id' => $project->city->id,
             'long' => $project->localisation->long,
-            'lat' => $project->localisation->lat
+            'lat' => $project->localisation->lat,
+            'nbr_property' => $project->nbr_property,
+            'paies_amount' => $project->paies_amount
         );
+
         return response()->json([
             'data' => $data
         ]);
@@ -126,6 +131,8 @@ class ProjectController extends Controller
 
         $project->name = $request->name;
         $project->city_id = $request->city_id;
+        $project->nbr_property = $request->nbr_property;
+        $project->paies_amount = $request->paies_amount;
         $project->update();
 
         $localisation = $project->localisation;

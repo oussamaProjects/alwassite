@@ -81,7 +81,6 @@ class CityController extends Controller
      */
     public function edit(City $city)
     {
-
         return response()->json([
             'data' => $city
         ]);

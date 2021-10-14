@@ -36,17 +36,18 @@ class BlocController extends Controller
         //     ->get()
         //     ->toArray();
 
-        $query = "SELECT blocs.id, blocs.name, count(blocs.id) * blocs.paies_amount as paid, 
-        pays.year_paie, blocs.nbr_property*blocs.paies_amount as should_be_paid from properties 
+        $query = "SELECT blocs.id, projects.paies_amount,blocs.name, count(blocs.id) * blocs.paies_amount as paid, 
+        pays.year_paie, blocs.nbr_property*projects.paies_amount as should_be_paid from properties 
        INNER JOIN pays on properties.id = pays.property_id 
        INNER JOIN blocs on properties.bloc_id = blocs.id
-       GROUP BY blocs.id, blocs.name,   pays.year_paie
+       INNER JOIN projects on projects.id = blocs.project_id
+       GROUP BY blocs.id, blocs.name, pays.year_paie
        ";
 
         // WHERE pays.month_paie = " . Carbon::now()->month . " AND pays.year_paie = 2021
 
-
         $blocs_payments = DB::select($query);
+        // dd($blocs_payments);
 
 
         // dd($blocs_payments);
@@ -123,7 +124,6 @@ class BlocController extends Controller
             'data' => $bloc
         ]);
     }
-
     /**
      * Update the specified resource in storage.
      *

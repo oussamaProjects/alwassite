@@ -648,3 +648,37 @@ a {
         }
     }
 }
+
+.ads-info {
+    background-color: #ffffee;
+    border: 1px solid #9B72AA;
+    text-align: center;
+    .images {
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-bottom: 16px;
+    }
+    .title {
+        text-transform: uppercase;
+    }
+    .city {}
+    .category {}
+    .info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        font-size: 12px;
+        span {
+            font-size: 12px;
+        }
+        .superficy {}
+        .etg {}
+        .contrat {}
+        .balcony {}
+        .swimming_pool {}
+        .vue {}
+        .car_park {}
+    }
+}

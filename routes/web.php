@@ -34,6 +34,7 @@ Route::resource('messages', MessageController::class);
 Route::resource('blocs', BlocController::class);
 Route::resource('properties', PropertyController::class);
 Route::resource('payments', PayController::class);
+Route::get('/service/calculator', 'serviceController@calculator')->name('service.calculator');
 
 Route::get('/payments/city/{city}', 'PayController@city')->name('payments.city');
 Route::get('/payments/project/{project}', 'PayController@project')->name('payments.project');
@@ -53,6 +54,10 @@ Route::resource('claims_statues', ClaimStatueController::class);
 Route::resource('city', 'CityController');
 Route::resource('complex', 'ComplexController');
 Route::resource('localisation', 'LocalisationController');
+Route::resource('services', ServiceController::class);
+Route::resource('budgets', BudgetController::class);
+
+Route::get('/service/calculator', 'serviceController@calculator')->name('service.calculator');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -69,8 +74,8 @@ Route::get('/myaccount/infos', 'MyAccountController@infos')->name('my-infos');
 Route::get('/myaccount/claims', 'MyAccountController@claims')->name('my-claims');
 Route::get('/myaccount/property/{property}/payments', 'MyAccountController@property_payments')->name('property-payments');
 Route::get('/myaccount/property/{property}/year/{year}/payments', 'MyAccountController@property_payments_per_year')->name('property-payments-per-year');
-
 Route::get('/myaccount/ads/create', 'AdsController@clientCreate')->name('create-ads-client');
+
 
 Route::resource('ads', 'AdsController')
     ->parameters([
@@ -78,6 +83,9 @@ Route::resource('ads', 'AdsController')
     ])->except([
         'show', 'destroy'
     ]);
+Route::get('/annonces', 'AdsController@ads')->name('annonces');
+Route::get('/annonce/{ad}', 'AdsController@details')->name('annonce.details');
+
 // Route::get('/table', 'TableController@index')->name('table');
 
 // Route::middleware('ajax')->group(function () {
@@ -86,7 +94,9 @@ Route::post('images-save', 'UploadImagesController@store')->name('save-images');
 Route::delete('images-delete', 'UploadImagesController@destroy')->name('destroy-images');
 Route::get('images-server', 'UploadImagesController@getServerImages')->name('server-images');
 
-Route::post('/mark-as-read', 'HomeController@markNotification')->name('markNotification');
+Route::post('/mark-as-read', 'HomeController@markNotification')->name('markAsRead');
+Route::get('/mark-as-read', 'HomeController@markNotification')->name('markAsRead');
+Route::get('/sendOfferNotification', 'HomeController@sendOfferNotification')->name('sendOfferNotification');
 
 
 

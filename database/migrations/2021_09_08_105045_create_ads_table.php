@@ -20,13 +20,13 @@ class CreateAdsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('user_id')->default(0);
-            $table->string('departement');
+            $table->string('departement')->nullable();
             $table->string('commune');
             $table->string('commune_name');
             $table->string('commune_postal');
             $table->string('pseudo');
             $table->string('email');
-            $table->date('limit');
+            $table->date('limit')->nullable();
             $table->boolean('active')->default(false);
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories');
