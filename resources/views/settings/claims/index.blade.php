@@ -1,6 +1,8 @@
 @extends('layouts.app', ['activePage' => 'claims', 'titlePage' => __('Manage claims')])
 
 @section('content')
+
+
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -90,6 +92,11 @@
                         <div class="card-header card-header-info">
                             <h4 class="card-title ">Claims</h4>
                             <p class="card-category"> Here you can manage claims</p>
+                            {{-- {!! QrCode::size(100)->eyeColor(0, 176, 151, 46, 46, 151, 177)->eye('circle')->generate('#1') !!} --}}
+                            {{-- {!! QrCode::size(100)->eyeColor(0, 176, 151, 46, 46, 151, 177)->eye('circle')->generate('#2') !!} --}}
+                            {{-- {!! QrCode::size(100)->eyeColor(0, 176, 151, 46, 46, 151, 177)->eye('circle')->generate('#3') !!} --}}
+                            {!! QrCode::size(100)->eyeColor(0, 176, 151, 46, 46, 151, 177)->eye('circle')->generate('http://127.0.0.1:8000/claims/4') !!}
+                            {{-- {!! QrCode::size(300)->eyeColor(0, 176, 151, 46, 46, 151, 177)->eye('circle')->merge('http://clickclack360.com/wp-content/uploads/2021/06/logo-clickclack360.png', 0.3, true)->generate('RemoteStack ccc') !!} --}}
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
